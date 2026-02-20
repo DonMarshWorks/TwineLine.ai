@@ -1,0 +1,41 @@
+{
+  "version": "0.2.0",
+  "compounds": [
+    {
+      "name": "⭐ Debug TwineLine.ai",
+      "configurations": [
+        "🚫 [Internal] Astro Dev Server",
+        "🚫 [Internal] Chrome Frontend"
+      ],
+      "stopAll": true,
+      "preLaunchTask": "Prepare Debug Environment",
+      "postDebugTask": "Cleanup Servers"
+    }
+  ],
+  "configurations": [
+    {
+      "name": "🚫 [Internal] Astro Dev Server",
+      "type": "node-terminal",
+      "request": "launch",
+      "command": "npm run dev",
+      "cwd": "${workspaceFolder}"
+    },
+    {
+      "name": "🚫 [Internal] Chrome Frontend",
+      "type": "chrome",
+      "request": "launch",
+      "url": "http://localhost:4321",
+      "webRoot": "${workspaceFolder}/src",
+      "sourceMaps": true,
+      "sourceMapPathOverrides": {
+        "/src/*": "${webRoot}/*",
+        "src/*": "${webRoot}/*"
+      },
+      "userDataDir": "${workspaceFolder}/.vscode/chrome-debug-profile",
+      "runtimeArgs": [
+        "--start-maximized",
+        "--auto-open-devtools-for-tabs"
+      ]
+    }
+  ]
+}
