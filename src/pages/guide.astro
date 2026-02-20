@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ConfigGuide from '../components/ConfigGuide.vue';
+---
+
+<BaseLayout title="Setup Guide - TwineLine.ai" description="Interactive setup guide for TwineLine.ai">
+  <section class="mx-auto max-w-6xl px-6 py-16">
+    <div class="text-center mb-12">
+      <h1 class="text-4xl font-bold tracking-tight">Setup Guide</h1>
+      <p class="mt-4 text-lg text-gray-600 dark:text-gray-400">
+        Answer a few questions and we'll generate the right install commands for your setup.
+      </p>
+    </div>
+
+    <ConfigGuide client:load />
+  </section>
+</BaseLayout>

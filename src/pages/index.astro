@@ -1,0 +1,61 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="TwineLine.ai - Intelligent Configuration for Your Infrastructure">
+  <!-- Hero Section -->
+  <section class="mx-auto max-w-6xl px-6 py-24 text-center">
+    <h1 class="text-5xl font-bold tracking-tight sm:text-6xl">
+      Configure smarter with
+      <span class="text-indigo-600 dark:text-indigo-400">TwineLine.ai</span>
+    </h1>
+    <p class="mx-auto mt-6 max-w-2xl text-lg text-gray-600 dark:text-gray-400">
+      Intelligent configuration management that helps you choose the right setup
+      for your local machine or cloud server — every time.
+    </p>
+    <div class="mt-10 flex items-center justify-center gap-4">
+      <a
+        href="/guide"
+        class="rounded-lg bg-indigo-600 px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-indigo-700 transition-colors"
+      >
+        Start Setup Guide
+      </a>
+      <a
+        href="/introduction"
+        class="rounded-lg border border-gray-300 dark:border-gray-700 px-6 py-3 text-sm font-semibold hover:border-indigo-500 transition-colors"
+      >
+        Read the Docs
+      </a>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="mx-auto max-w-6xl px-6 py-16">
+    <div class="grid gap-8 md:grid-cols-3">
+      <div class="rounded-xl border border-gray-200 dark:border-gray-800 p-8">
+        <div class="text-3xl mb-4">&#9881;</div>
+        <h3 class="text-lg font-semibold mb-2">Guided Configuration</h3>
+        <p class="text-gray-600 dark:text-gray-400">
+          Step-by-step wizard that helps you choose the right configuration
+          for your environment and requirements.
+        </p>
+      </div>
+      <div class="rounded-xl border border-gray-200 dark:border-gray-800 p-8">
+        <div class="text-3xl mb-4">&#9729;</div>
+        <h3 class="text-lg font-semibold mb-2">Local or Cloud</h3>
+        <p class="text-gray-600 dark:text-gray-400">
+          Deploy to your local machine for development or to a cloud server
+          for production — the guide adapts to your choice.
+        </p>
+      </div>
+      <div class="rounded-xl border border-gray-200 dark:border-gray-800 p-8">
+        <div class="text-3xl mb-4">&#128218;</div>
+        <h3 class="text-lg font-semibold mb-2">Comprehensive Docs</h3>
+        <p class="text-gray-600 dark:text-gray-400">
+          Detailed documentation covering every configuration option,
+          deployment scenario, and troubleshooting guide.
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
