@@ -108,47 +108,56 @@ async function copyCommands() {
       >
         <div class="flex flex-col items-center">
           <div
-            class="w-10 h-10 rounded-full flex items-center justify-center text-sm font-semibold transition-colors"
-            :class="
+            class="w-10 h-10 rounded-full flex items-center justify-center text-sm font-semibold transition-all duration-300"
+            :style="
               i < currentStep
-                ? 'bg-indigo-600 text-white'
+                ? 'background: var(--accent); color: #fff;'
                 : i === currentStep
-                  ? 'bg-indigo-100 text-indigo-700 ring-2 ring-indigo-600'
-                  : 'bg-gray-100 text-gray-400 dark:bg-gray-800'
+                  ? 'background: var(--accent-glow); color: var(--accent); box-shadow: 0 0 0 2px var(--accent);'
+                  : 'background: rgba(255,255,255,0.06); color: var(--text-muted);'
             "
           >
             <span v-if="i < currentStep">&#10003;</span>
             <span v-else>{{ i + 1 }}</span>
           </div>
-          <span class="mt-2 text-xs text-center hidden sm:block" :class="i <= currentStep ? 'text-gray-900 dark:text-gray-100' : 'text-gray-400'">
+          <span
+            class="mt-2 text-xs text-center hidden sm:block"
+            :style="i <= currentStep ? 'color: var(--text-primary);' : 'color: var(--text-muted);'"
+          >
             {{ step.title }}
           </span>
         </div>
         <div
           v-if="i < steps.length - 1"
-          class="flex-1 h-0.5 mx-3 mt-[-1rem]"
-          :class="i < currentStep ? 'bg-indigo-600' : 'bg-gray-200 dark:bg-gray-700'"
+          class="flex-1 h-0.5 mx-3 mt-[-1rem] transition-colors duration-300"
+          :style="i < currentStep ? 'background: var(--accent);' : 'background: var(--glass-border);'"
         />
       </div>
     </div>
 
     <!-- Step Content -->
-    <div class="rounded-xl border border-gray-200 dark:border-gray-800 p-8">
-      <h2 class="text-xl font-semibold mb-1">{{ steps[currentStep].title }}</h2>
-      <p class="text-gray-500 mb-6">{{ steps[currentStep].description }}</p>
+    <div class="glass p-8">
+      <h2 class="text-xl font-semibold mb-1" style="color: var(--text-primary);">{{ steps[currentStep].title }}</h2>
+      <p class="mb-6" style="color: var(--text-secondary);">{{ steps[currentStep].description }}</p>
 
       <!-- Step 0: Environment -->
       <div v-if="currentStep === 0" class="grid gap-4 sm:grid-cols-2">
         <button
           v-for="env in (['local', 'cloud'] as const)"
           :key="env"
-          class="rounded-lg border-2 p-6 text-left transition-colors"
-          :class="environment === env ? 'border-indigo-600 bg-indigo-50 dark:bg-indigo-950' : 'border-gray-200 dark:border-gray-700 hover:border-gray-300'"
+          class="rounded-xl p-6 text-left transition-all duration-200"
+          :style="
+            environment === env
+              ? 'background: var(--accent-glow); border: 1px solid var(--accent); color: var(--text-primary);'
+              : 'background: var(--glass-bg); border: 1px solid var(--glass-border); color: var(--text-primary);'
+          "
           @click="environment = env; platform = null"
+          @mouseover="($event.currentTarget as HTMLElement).style.borderColor = environment === env ? 'var(--accent)' : 'var(--glass-border-hover)'"
+          @mouseout="($event.currentTarget as HTMLElement).style.borderColor = environment === env ? 'var(--accent)' : 'var(--glass-border)'"
         >
           <div class="text-2xl mb-2">{{ env === 'local' ? '&#128187;' : '&#9729;&#65039;' }}</div>
           <div class="font-semibold">{{ env === 'local' ? 'Local Machine' : 'Cloud Server' }}</div>
-          <div class="text-sm text-gray-500 mt-1">
+          <div class="text-sm mt-1" style="color: var(--text-secondary);">
             {{ env === 'local' ? 'Install on your own computer' : 'Deploy to a cloud provider' }}
           </div>
         </button>
@@ -159,8 +168,12 @@ async function copyCommands() {
         <button
           v-for="p in availablePlatforms"
           :key="p"
-          class="rounded-lg border-2 p-4 text-left transition-colors"
-          :class="platform === p ? 'border-indigo-600 bg-indigo-50 dark:bg-indigo-950' : 'border-gray-200 dark:border-gray-700 hover:border-gray-300'"
+          class="rounded-xl p-4 text-left transition-all duration-200"
+          :style="
+            platform === p
+              ? 'background: var(--accent-glow); border: 1px solid var(--accent); color: var(--text-primary);'
+              : 'background: var(--glass-bg); border: 1px solid var(--glass-border); color: var(--text-primary);'
+          "
           @click="platform = p"
         >
           <div class="font-semibold">{{ p }}</div>
@@ -170,13 +183,17 @@ async function copyCommands() {
       <!-- Step 2: Configuration -->
       <div v-if="currentStep === 2" class="space-y-4">
         <div>
-          <label class="block text-sm font-medium mb-2">Database</label>
+          <label class="block text-sm font-medium mb-2" style="color: var(--text-primary);">Database</label>
           <div class="grid gap-3 sm:grid-cols-3">
             <button
               v-for="db in databases"
               :key="db"
-              class="rounded-lg border-2 p-4 text-center transition-colors"
-              :class="database === db ? 'border-indigo-600 bg-indigo-50 dark:bg-indigo-950' : 'border-gray-200 dark:border-gray-700 hover:border-gray-300'"
+              class="rounded-xl p-4 text-center transition-all duration-200"
+              :style="
+                database === db
+                  ? 'background: var(--accent-glow); border: 1px solid var(--accent); color: var(--text-primary);'
+                  : 'background: var(--glass-bg); border: 1px solid var(--glass-border); color: var(--text-primary);'
+              "
               @click="database = db"
             >
               {{ db }}
@@ -187,16 +204,19 @@ async function copyCommands() {
 
       <!-- Step 3: Install -->
       <div v-if="currentStep === 3">
-        <div class="mb-4 space-y-1 text-sm text-gray-600 dark:text-gray-400">
-          <p><strong>Environment:</strong> {{ environment === 'local' ? 'Local' : 'Cloud' }}</p>
-          <p><strong>Platform:</strong> {{ platform }}</p>
-          <p><strong>Database:</strong> {{ database }}</p>
+        <div class="mb-4 space-y-1 text-sm" style="color: var(--text-secondary);">
+          <p><strong style="color: var(--text-primary);">Environment:</strong> {{ environment === 'local' ? 'Local' : 'Cloud' }}</p>
+          <p><strong style="color: var(--text-primary);">Platform:</strong> {{ platform }}</p>
+          <p><strong style="color: var(--text-primary);">Database:</strong> {{ database }}</p>
         </div>
         <div class="relative">
-          <pre class="rounded-lg bg-gray-900 p-4 text-sm text-gray-100 overflow-x-auto"><code>{{ installCommands }}</code></pre>
+          <pre class="rounded-xl p-4 text-sm overflow-x-auto" style="background: rgba(0,0,0,0.4); color: var(--text-primary); border: 1px solid var(--glass-border);"><code>{{ installCommands }}</code></pre>
           <button
-            class="absolute top-3 right-3 rounded bg-gray-700 px-3 py-1 text-xs text-gray-300 hover:bg-gray-600 transition-colors"
+            class="absolute top-3 right-3 rounded-lg px-3 py-1 text-xs transition-all duration-200"
+            style="background: var(--glass-bg); color: var(--text-secondary); border: 1px solid var(--glass-border);"
             @click="copyCommands"
+            @mouseover="($event.currentTarget as HTMLElement).style.borderColor = 'var(--accent)'"
+            @mouseout="($event.currentTarget as HTMLElement).style.borderColor = 'var(--glass-border)'"
           >
             {{ copied ? 'Copied!' : 'Copy' }}
           </button>
@@ -208,7 +228,7 @@ async function copyCommands() {
     <div class="flex justify-between mt-6">
       <button
         v-if="currentStep > 0"
-        class="rounded-lg border border-gray-300 dark:border-gray-700 px-5 py-2 text-sm font-medium hover:border-gray-400 transition-colors"
+        class="btn-outline"
         @click="back"
       >
         Back
@@ -217,7 +237,8 @@ async function copyCommands() {
 
       <button
         v-if="currentStep < steps.length - 1"
-        class="rounded-lg bg-indigo-600 px-5 py-2 text-sm font-semibold text-white hover:bg-indigo-700 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+        class="btn-accent"
+        :style="!canAdvance ? 'opacity: 0.4; cursor: not-allowed;' : ''"
         :disabled="!canAdvance"
         @click="next"
       >
@@ -225,7 +246,7 @@ async function copyCommands() {
       </button>
       <button
         v-else
-        class="rounded-lg border border-gray-300 dark:border-gray-700 px-5 py-2 text-sm font-medium hover:border-gray-400 transition-colors"
+        class="btn-outline"
         @click="reset"
       >
         Start Over

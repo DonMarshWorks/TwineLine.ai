@@ -4,7 +4,7 @@
     {
       "label": "Start Astro Dev Server",
       "type": "shell",
-      "command": "npm run dev || exit 0",
+      "command": "npm run dev 2>&1 | cat || exit 0",
       "group": "build",
       "presentation": {
         "echo": true,
@@ -29,7 +29,7 @@
           "background": {
             "activeOnStart": true,
             "beginsPattern": "astro",
-            "endsPattern": "(ready in|Local:)"
+            "endsPattern": "4321"
           }
         }
       ]
@@ -37,21 +37,7 @@
     {
       "label": "Cleanup Servers",
       "type": "shell",
-      "windows": {
-        "command": "taskkill /F /IM node.exe /FI \"WINDOWTITLE eq npm*\" >nul 2>&1 || exit /b 0",
-        "options": {
-          "shell": {
-            "executable": "cmd.exe",
-            "args": ["/c"]
-          }
-        }
-      },
-      "linux": {
-        "command": "pkill -f 'astro dev' || true"
-      },
-      "osx": {
-        "command": "pkill -f 'astro dev' || true"
-      },
+      "command": "pid=$(netstat -ano 2>/dev/null | grep ':4321.*LISTENING' | awk '{print $NF}' | head -1); [ -n \"$pid\" ] && taskkill //F //PID $pid >/dev/null 2>&1; exit 0",
       "presentation": {
         "reveal": "silent",
         "panel": "shared",

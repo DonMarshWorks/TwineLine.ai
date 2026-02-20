@@ -6,7 +6,7 @@ interface Props {
   description?: string;
 }
 
-const { title, description = 'TwineLine.ai - Intelligent configuration for your infrastructure' } = Astro.props;
+const { title, description = 'TwineLine.ai - Relive your memories through intelligent slideshows' } = Astro.props;
 ---
 
 <!doctype html>
@@ -16,40 +16,45 @@ const { title, description = 'TwineLine.ai - Intelligent configuration for your 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
     <title>{title}</title>
   </head>
-  <body class="min-h-screen bg-white text-gray-900 antialiased dark:bg-gray-950 dark:text-gray-100">
-    <header class="border-b border-gray-200 dark:border-gray-800">
+  <body class="min-h-screen antialiased" style="font-family: 'Inter', system-ui, sans-serif; color: var(--text-primary); background: var(--bg-deep);">
+    <!-- Animated background blobs -->
+    <div class="animated-bg">
+      <div class="animated-bg-blob"></div>
+    </div>
+
+    <header class="glass-nav sticky top-0 z-50">
       <nav class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-        <a href="/" class="text-xl font-bold">
-          TwineLine<span class="font-light text-indigo-500">.ai</span>
+        <a href="/" class="text-xl font-semibold tracking-tight" style="color: var(--text-primary);">
+          TwineLine<span class="font-light" style="color: var(--accent);">.ai</span>
         </a>
         <div class="flex items-center gap-6">
-          <a href="/introduction" class="text-sm hover:text-indigo-500 transition-colors">Docs</a>
-          <a href="/guide" class="text-sm hover:text-indigo-500 transition-colors">Setup Guide</a>
-          <a
-            href="/quickstart"
-            class="rounded-lg bg-indigo-600 px-4 py-2 text-sm font-medium text-white hover:bg-indigo-700 transition-colors"
-          >
+          <a href="/introduction" class="text-sm transition-colors" style="color: var(--text-secondary);" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-secondary)'">Docs</a>
+          <a href="/guide" class="text-sm transition-colors" style="color: var(--text-secondary);" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-secondary)'">Setup Guide</a>
+          <a href="/quickstart" class="btn-accent">
             Get Started
           </a>
         </div>
       </nav>
     </header>
 
-    <main>
+    <main class="relative z-10">
       <slot />
     </main>
 
-    <footer class="border-t border-gray-200 dark:border-gray-800 mt-24">
+    <footer class="relative z-10 mt-24" style="border-top: 1px solid var(--glass-border);">
       <div class="mx-auto max-w-6xl px-6 py-12">
         <div class="flex flex-col md:flex-row justify-between items-center gap-4">
-          <p class="text-sm text-gray-500">
+          <p class="text-sm" style="color: var(--text-muted);">
             &copy; {new Date().getFullYear()} TwineLine.ai. All rights reserved.
           </p>
           <div class="flex gap-6">
-            <a href="/introduction" class="text-sm text-gray-500 hover:text-indigo-500 transition-colors">Docs</a>
-            <a href="/guide" class="text-sm text-gray-500 hover:text-indigo-500 transition-colors">Setup Guide</a>
+            <a href="/introduction" class="text-sm transition-colors" style="color: var(--text-muted);" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-muted)'">Docs</a>
+            <a href="/guide" class="text-sm transition-colors" style="color: var(--text-muted);" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-muted)'">Setup Guide</a>
           </div>
         </div>
       </div>

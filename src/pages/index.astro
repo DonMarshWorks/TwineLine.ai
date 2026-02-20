@@ -2,60 +2,115 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<BaseLayout title="TwineLine.ai - Intelligent Configuration for Your Infrastructure">
+<BaseLayout title="TwineLine.ai - Relive Your Memories Through Intelligent Slideshows">
   <!-- Hero Section -->
-  <section class="mx-auto max-w-6xl px-6 py-24 text-center">
-    <h1 class="text-5xl font-bold tracking-tight sm:text-6xl">
-      Configure smarter with
-      <span class="text-indigo-600 dark:text-indigo-400">TwineLine.ai</span>
+  <section class="mx-auto max-w-5xl px-6 pt-28 pb-20 text-center">
+    <p class="text-sm font-medium tracking-widest uppercase mb-6" style="color: var(--accent);">
+      Your memories, beautifully told
+    </p>
+    <h1 class="text-5xl font-bold tracking-tight sm:text-6xl leading-tight" style="color: var(--text-primary);">
+      Intelligent slideshows<br />
+      from your <span style="color: var(--accent);">photos &amp; videos</span>
     </h1>
-    <p class="mx-auto mt-6 max-w-2xl text-lg text-gray-600 dark:text-gray-400">
-      Intelligent configuration management that helps you choose the right setup
-      for your local machine or cloud server — every time.
+    <p class="mx-auto mt-6 max-w-2xl text-lg leading-relaxed" style="color: var(--text-secondary);">
+      TwineLine creates beautiful, topical slideshows of your memories &mdash; organized by
+      people, places, events, and moments that matter. Powered by AI, designed with heart.
     </p>
     <div class="mt-10 flex items-center justify-center gap-4">
-      <a
-        href="/guide"
-        class="rounded-lg bg-indigo-600 px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-indigo-700 transition-colors"
-      >
-        Start Setup Guide
+      <a href="/guide" class="btn-accent">
+        Get Started
       </a>
-      <a
-        href="/introduction"
-        class="rounded-lg border border-gray-300 dark:border-gray-700 px-6 py-3 text-sm font-semibold hover:border-indigo-500 transition-colors"
-      >
-        Read the Docs
+      <a href="/introduction" class="btn-outline">
+        Learn More
       </a>
     </div>
   </section>
 
-  <!-- Features Section -->
-  <section class="mx-auto max-w-6xl px-6 py-16">
+  <!-- Feature Cards -->
+  <section class="mx-auto max-w-5xl px-6 py-16">
+    <div class="grid gap-6 md:grid-cols-3">
+      <div class="glass glass-hover p-8 transition-all duration-300">
+        <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-5 text-xl" style="background: var(--accent-glow); color: var(--accent);">
+          &#9733;
+        </div>
+        <h3 class="text-lg font-semibold mb-2" style="color: var(--text-primary);">Smart Directors</h3>
+        <p style="color: var(--text-secondary); font-size: 0.925rem; line-height: 1.6;">
+          Directors curate slideshows from your topics &mdash; family, pets, vacations, milestones.
+          Each show is unique and beautifully paced.
+        </p>
+      </div>
+
+      <div class="glass glass-hover p-8 transition-all duration-300">
+        <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-5 text-xl" style="background: var(--accent-glow); color: var(--accent);">
+          &#127912;
+        </div>
+        <h3 class="text-lg font-semibold mb-2" style="color: var(--text-primary);">Artistic Presentation</h3>
+        <p style="color: var(--text-secondary); font-size: 0.925rem; line-height: 1.6;">
+          Dynamic backgrounds adapt to each slide's colors and composition, creating
+          an immersive, cinematic viewing experience.
+        </p>
+      </div>
+
+      <div class="glass glass-hover p-8 transition-all duration-300">
+        <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-5 text-xl" style="background: var(--accent-glow); color: var(--accent);">
+          &#128274;
+        </div>
+        <h3 class="text-lg font-semibold mb-2" style="color: var(--text-primary);">Private &amp; Yours</h3>
+        <p style="color: var(--text-secondary); font-size: 0.925rem; line-height: 1.6;">
+          Your photos stay on your hardware &mdash; local or your own cloud server.
+          No third-party storage, no subscriptions, no compromises.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section class="mx-auto max-w-5xl px-6 py-16">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl font-bold" style="color: var(--text-primary);">How it works</h2>
+      <p class="mt-3" style="color: var(--text-secondary);">Three simple steps to relive your favorite moments</p>
+    </div>
     <div class="grid gap-8 md:grid-cols-3">
-      <div class="rounded-xl border border-gray-200 dark:border-gray-800 p-8">
-        <div class="text-3xl mb-4">&#9881;</div>
-        <h3 class="text-lg font-semibold mb-2">Guided Configuration</h3>
-        <p class="text-gray-600 dark:text-gray-400">
-          Step-by-step wizard that helps you choose the right configuration
-          for your environment and requirements.
+      <div class="text-center">
+        <div class="w-12 h-12 rounded-full mx-auto flex items-center justify-center text-lg font-bold mb-4" style="background: var(--accent); color: #fff;">
+          1
+        </div>
+        <h3 class="font-semibold mb-2" style="color: var(--text-primary);">Point to your photos</h3>
+        <p class="text-sm" style="color: var(--text-secondary);">
+          Connect TwineLine to your photo library, wherever it lives.
         </p>
       </div>
-      <div class="rounded-xl border border-gray-200 dark:border-gray-800 p-8">
-        <div class="text-3xl mb-4">&#9729;</div>
-        <h3 class="text-lg font-semibold mb-2">Local or Cloud</h3>
-        <p class="text-gray-600 dark:text-gray-400">
-          Deploy to your local machine for development or to a cloud server
-          for production — the guide adapts to your choice.
+      <div class="text-center">
+        <div class="w-12 h-12 rounded-full mx-auto flex items-center justify-center text-lg font-bold mb-4" style="background: var(--accent); color: #fff;">
+          2
+        </div>
+        <h3 class="font-semibold mb-2" style="color: var(--text-primary);">Choose your topics</h3>
+        <p class="text-sm" style="color: var(--text-secondary);">
+          Select people, places, events, or time periods you want to revisit.
         </p>
       </div>
-      <div class="rounded-xl border border-gray-200 dark:border-gray-800 p-8">
-        <div class="text-3xl mb-4">&#128218;</div>
-        <h3 class="text-lg font-semibold mb-2">Comprehensive Docs</h3>
-        <p class="text-gray-600 dark:text-gray-400">
-          Detailed documentation covering every configuration option,
-          deployment scenario, and troubleshooting guide.
+      <div class="text-center">
+        <div class="w-12 h-12 rounded-full mx-auto flex items-center justify-center text-lg font-bold mb-4" style="background: var(--accent); color: #fff;">
+          3
+        </div>
+        <h3 class="font-semibold mb-2" style="color: var(--text-primary);">Sit back and enjoy</h3>
+        <p class="text-sm" style="color: var(--text-secondary);">
+          A director creates a beautiful, dynamic slideshow &mdash; different every time.
         </p>
       </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="mx-auto max-w-3xl px-6 py-20 text-center">
+    <div class="glass p-12">
+      <h2 class="text-3xl font-bold mb-4" style="color: var(--text-primary);">Ready to get started?</h2>
+      <p class="mb-8" style="color: var(--text-secondary);">
+        Use our interactive guide to configure TwineLine for your setup.
+      </p>
+      <a href="/guide" class="btn-accent inline-block">
+        Launch Setup Guide
+      </a>
     </div>
   </section>
 </BaseLayout>

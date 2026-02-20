@@ -4,7 +4,6 @@
     {
       "name": "⭐ Debug TwineLine.ai",
       "configurations": [
-        "🚫 [Internal] Astro Dev Server",
         "🚫 [Internal] Chrome Frontend"
       ],
       "stopAll": true,
@@ -13,13 +12,6 @@
     }
   ],
   "configurations": [
-    {
-      "name": "🚫 [Internal] Astro Dev Server",
-      "type": "node-terminal",
-      "request": "launch",
-      "command": "npm run dev",
-      "cwd": "${workspaceFolder}"
-    },
     {
       "name": "🚫 [Internal] Chrome Frontend",
       "type": "chrome",

@@ -1,1 +1,176 @@
 @import "tailwindcss";
+
+/* ============================================
+   TwineLine.ai Glassmorphic Theme
+   Inspired by the app's frosted-glass UI
+   ============================================ */
+
+:root {
+  --glass-bg: rgba(255, 255, 255, 0.06);
+  --glass-bg-hover: rgba(255, 255, 255, 0.1);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-border-hover: rgba(255, 255, 255, 0.2);
+  --glass-blur: 20px;
+  --accent: #5cb87a;
+  --accent-hover: #4aa368;
+  --accent-glow: rgba(92, 184, 122, 0.25);
+  --text-primary: #f0f0f0;
+  --text-secondary: rgba(255, 255, 255, 0.6);
+  --text-muted: rgba(255, 255, 255, 0.4);
+  --bg-deep: #1a1a1a;
+}
+
+/* Animated background gradient blobs — echoes the app's
+   dynamic blurred backgrounds without using actual images */
+.animated-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  background: var(--bg-deep);
+}
+
+.animated-bg::before,
+.animated-bg::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.4;
+  animation: drift 20s ease-in-out infinite alternate;
+}
+
+.animated-bg::before {
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, #6b4423, #3d2814);
+  top: -10%;
+  left: -5%;
+  animation-duration: 25s;
+}
+
+.animated-bg::after {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, #2d5a3d, #1a3a28);
+  bottom: -10%;
+  right: -5%;
+  animation-duration: 30s;
+  animation-direction: alternate-reverse;
+}
+
+/* Third blob via a wrapper element */
+.animated-bg-blob {
+  position: absolute;
+  width: 450px;
+  height: 450px;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.3;
+  background: radial-gradient(circle, #4a3060, #2a1a3a);
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: drift-alt 22s ease-in-out infinite alternate;
+}
+
+@keyframes drift {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(60px, 40px) scale(1.1); }
+  100% { transform: translate(-30px, 60px) scale(0.95); }
+}
+
+@keyframes drift-alt {
+  0% { transform: translate(-50%, -50%) scale(1); }
+  50% { transform: translate(-40%, -45%) scale(1.15); }
+  100% { transform: translate(-55%, -55%) scale(0.9); }
+}
+
+/* Glassmorphic panel */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+}
+
+.glass-hover:hover {
+  background: var(--glass-bg-hover);
+  border-color: var(--glass-border-hover);
+}
+
+/* Glassmorphic nav bar */
+.glass-nav {
+  background: rgba(26, 26, 26, 0.7);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-bottom: 1px solid var(--glass-border);
+}
+
+/* Accent button */
+.btn-accent {
+  background: var(--accent);
+  color: #fff;
+  font-weight: 600;
+  border-radius: 10px;
+  padding: 0.6rem 1.5rem;
+  font-size: 0.875rem;
+  transition: all 0.2s ease;
+  box-shadow: 0 0 20px var(--accent-glow);
+}
+
+.btn-accent:hover {
+  background: var(--accent-hover);
+  box-shadow: 0 0 30px var(--accent-glow);
+}
+
+/* Outline button */
+.btn-outline {
+  background: transparent;
+  color: var(--text-primary);
+  font-weight: 600;
+  border-radius: 10px;
+  padding: 0.6rem 1.5rem;
+  font-size: 0.875rem;
+  border: 1px solid var(--glass-border);
+  transition: all 0.2s ease;
+}
+
+.btn-outline:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* Starlight overrides — blend docs into the dark glassmorphic theme */
+:root[data-theme='light'] {
+  --sl-color-bg: #1e1e1e;
+  --sl-color-bg-sidebar: rgba(26, 26, 26, 0.8);
+  --sl-color-bg-nav: rgba(26, 26, 26, 0.85);
+  --sl-color-hairline-light: rgba(255, 255, 255, 0.08);
+  --sl-color-hairline: rgba(255, 255, 255, 0.1);
+  --sl-color-white: #f0f0f0;
+  --sl-color-gray-1: #e0e0e0;
+  --sl-color-gray-2: #b0b0b0;
+  --sl-color-gray-3: #808080;
+  --sl-color-gray-4: #505050;
+  --sl-color-gray-5: #383838;
+  --sl-color-gray-6: #272727;
+  --sl-color-gray-7: #1e1e1e;
+  --sl-color-black: #151515;
+  --sl-color-accent-low: #1a3a28;
+  --sl-color-accent: #5cb87a;
+  --sl-color-accent-high: #c8f0d4;
+  --sl-color-text: #e0e0e0;
+  --sl-color-text-accent: #5cb87a;
+}
+
+:root[data-theme='dark'] {
+  --sl-color-bg: #151515;
+  --sl-color-bg-sidebar: rgba(21, 21, 21, 0.9);
+  --sl-color-bg-nav: rgba(21, 21, 21, 0.85);
+  --sl-color-accent-low: #1a3a28;
+  --sl-color-accent: #5cb87a;
+  --sl-color-accent-high: #c8f0d4;
+  --sl-color-text-accent: #5cb87a;
+}
