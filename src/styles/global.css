@@ -11,9 +11,9 @@
   --glass-border: rgba(255, 255, 255, 0.1);
   --glass-border-hover: rgba(255, 255, 255, 0.2);
   --glass-blur: 20px;
-  --accent: #5cb87a;
-  --accent-hover: #4aa368;
-  --accent-glow: rgba(92, 184, 122, 0.25);
+  --accent: #d4a056;
+  --accent-hover: #c08d42;
+  --accent-glow: rgba(212, 160, 86, 0.25);
   --text-primary: #f0f0f0;
   --text-secondary: rgba(255, 255, 255, 0.6);
   --text-muted: rgba(255, 255, 255, 0.4);
@@ -52,7 +52,7 @@
 .animated-bg::after {
   width: 500px;
   height: 500px;
-  background: radial-gradient(circle, #2d5a3d, #1a3a28);
+  background: radial-gradient(circle, #5a3d1a, #3a2810);
   bottom: -10%;
   right: -5%;
   animation-duration: 30s;
@@ -110,19 +110,19 @@
 
 /* Accent button */
 .btn-accent {
-  background: var(--accent);
+  background: #c49345;
   color: #fff;
   font-weight: 600;
   border-radius: 10px;
   padding: 0.6rem 1.5rem;
   font-size: 0.875rem;
   transition: all 0.2s ease;
-  box-shadow: 0 0 20px var(--accent-glow);
+  box-shadow: 0 0 20px rgba(196, 147, 69, 0.25);
 }
 
 .btn-accent:hover {
-  background: var(--accent-hover);
-  box-shadow: 0 0 30px var(--accent-glow);
+  background: #a97e3a;
+  box-shadow: 0 0 30px rgba(196, 147, 69, 0.25);
 }
 
 /* Outline button */
@@ -142,6 +142,62 @@
   color: var(--accent);
 }
 
+/* Nav links */
+.nav-link:hover {
+  color: var(--accent) !important;
+}
+
+/* Hero video container */
+.hero-video-wrapper {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--glass-border);
+  background: rgba(0, 0, 0, 0.3);
+  box-shadow:
+    0 0 40px rgba(212, 160, 86, 0.08),
+    0 20px 60px rgba(0, 0, 0, 0.4);
+}
+
+.hero-video-wrapper video {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Placeholder shown when no video src */
+.hero-video-placeholder {
+  aspect-ratio: 16 / 9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  background: linear-gradient(
+    135deg,
+    rgba(212, 160, 86, 0.08) 0%,
+    rgba(74, 48, 96, 0.08) 50%,
+    rgba(107, 68, 35, 0.08) 100%
+  );
+}
+
+/* Feature video clips */
+.feature-video-wrapper {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--glass-border);
+  background: rgba(0, 0, 0, 0.2);
+  aspect-ratio: 16 / 9;
+}
+
+.feature-video-wrapper video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 /* Starlight overrides — blend docs into the dark glassmorphic theme */
 :root[data-theme='light'] {
   --sl-color-bg: #1e1e1e;
@@ -158,19 +214,19 @@
   --sl-color-gray-6: #272727;
   --sl-color-gray-7: #1e1e1e;
   --sl-color-black: #151515;
-  --sl-color-accent-low: #1a3a28;
-  --sl-color-accent: #5cb87a;
-  --sl-color-accent-high: #c8f0d4;
+  --sl-color-accent-low: #3a2810;
+  --sl-color-accent: #d4a056;
+  --sl-color-accent-high: #f0dcc0;
   --sl-color-text: #e0e0e0;
-  --sl-color-text-accent: #5cb87a;
+  --sl-color-text-accent: #d4a056;
 }
 
 :root[data-theme='dark'] {
   --sl-color-bg: #151515;
   --sl-color-bg-sidebar: rgba(21, 21, 21, 0.9);
   --sl-color-bg-nav: rgba(21, 21, 21, 0.85);
-  --sl-color-accent-low: #1a3a28;
-  --sl-color-accent: #5cb87a;
-  --sl-color-accent-high: #c8f0d4;
-  --sl-color-text-accent: #5cb87a;
+  --sl-color-accent-low: #3a2810;
+  --sl-color-accent: #d4a056;
+  --sl-color-accent-high: #f0dcc0;
+  --sl-color-text-accent: #d4a056;
 }
