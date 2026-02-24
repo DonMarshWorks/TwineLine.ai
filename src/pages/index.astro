@@ -192,21 +192,13 @@ const featureVideos = {
           Photo intelligence you own
         </h3>
         <p style="color: var(--text-secondary); line-height: 1.7;">
-          TwineLine uses AI to understand your photos &mdash; the people, places, and moments in them.
-          Unlike Google, Apple, or Microsoft, we don&rsquo;t lock those insights away or change the rules.
+          TwineLine uses AI to understand the people, places, and moments in your photos.
+          Unlike Google, Apple, or Microsoft, we don&rsquo;t lock these insights away or change the rules.
           Your photo intelligence belongs to you, is controlled by you, and isn&rsquo;t accessible to anyone but you.
         </p>
       </div>
       <div class="feature-video-wrapper order-2">
-        {featureVideos.multiDevice ? (
-          <video autoplay muted loop playsinline preload="metadata">
-            <source src={featureVideos.multiDevice} type="video/mp4" />
-          </video>
-        ) : (
-          <div class="w-full h-full flex items-center justify-center" style="color: var(--text-muted);">
-            <span class="text-sm">Multi-device clip</span>
-          </div>
-        )}
+        <img src="https://media.twineline.ai/ai-feature-v2.webp" alt="AI-powered photo intelligence" width="854" height="466" loading="lazy" />
       </div>
     </div>
   </section>
