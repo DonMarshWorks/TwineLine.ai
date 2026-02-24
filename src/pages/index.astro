@@ -4,8 +4,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 // Set to your R2 video URLs when ready
 const heroVideo = 'https://media.twineline.ai/hero-demo.mp4';
 const featureVideos = {
-  motionEffects: '', // e.g. 'https://media.twineline.ai/feature-motion.mp4'
-  transitions: '',
+  allDevices: 'https://media.twineline.ai/multi-device.mp4',
+  transitions: 'https://media.twineline.ai/feature-transitions.mp4',
   videoSupport: '',
   multiDevice: '',
 };
@@ -63,36 +63,36 @@ const featureVideos = {
   <!-- Feature Cards -->
   <section class="mx-auto max-w-5xl px-4 sm:px-6 py-12 sm:py-16">
     <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-      <div class="glass glass-hover p-6 sm:p-8 transition-all duration-300">
+      <div class="glass p-6 sm:p-8">
         <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-5 text-xl" style="background: var(--accent-glow); color: var(--accent);">
           &#9733;
         </div>
-        <h3 class="text-lg font-semibold mb-2" style="color: var(--text-primary);">Smart Directors</h3>
+        <h3 class="text-lg font-semibold mb-2" style="color: var(--text-primary);">Smart.</h3>
         <p style="color: var(--text-secondary); font-size: 0.925rem; line-height: 1.6;">
-          Directors curate slideshows from your topics &mdash; family, pets, vacations, milestones.
-          Each show is unique and beautifully paced.
+          Set rules like &ldquo;travel on weekends&rdquo; or &ldquo;family on birthdays.&rdquo;
+          TwineLine creates a fresh slideshow every day &mdash; different every time, no effort required.
         </p>
       </div>
 
-      <div class="glass glass-hover p-6 sm:p-8 transition-all duration-300">
+      <div class="glass p-6 sm:p-8">
         <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-5 text-xl" style="background: var(--accent-glow); color: var(--accent);">
           &#127912;
         </div>
-        <h3 class="text-lg font-semibold mb-2" style="color: var(--text-primary);">Artistic Presentation</h3>
+        <h3 class="text-lg font-semibold mb-2" style="color: var(--text-primary);">Beautiful.</h3>
         <p style="color: var(--text-secondary); font-size: 0.925rem; line-height: 1.6;">
-          Dynamic backgrounds adapt to each slide's colors and composition, creating
-          an immersive, cinematic viewing experience.
+          Smooth Ken Burns animation, cinematic transitions, and video clips bring your photos to life
+          across every screen &mdash; Fire TV, computers, tablets, and phones.
         </p>
       </div>
 
-      <div class="glass glass-hover p-6 sm:p-8 transition-all duration-300 sm:col-span-2 lg:col-span-1">
+      <div class="glass p-6 sm:p-8 sm:col-span-2 lg:col-span-1">
         <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-5 text-xl" style="background: var(--accent-glow); color: var(--accent);">
           &#128274;
         </div>
-        <h3 class="text-lg font-semibold mb-2" style="color: var(--text-primary);">Private &amp; Yours</h3>
+        <h3 class="text-lg font-semibold mb-2" style="color: var(--text-primary);">Free.</h3>
         <p style="color: var(--text-secondary); font-size: 0.925rem; line-height: 1.6;">
-          Your photos stay on your hardware &mdash; local or your own cloud server.
-          No third-party storage, no subscriptions, no compromises.
+          No subscription, no account, no data collection. Install on your own computer, or choose
+          affordable hosting for web access without managing your own server.
         </p>
       </div>
     </div>
@@ -105,45 +105,47 @@ const featureVideos = {
       <p class="mt-3" style="color: var(--text-secondary);">Every detail designed for a beautiful viewing experience</p>
     </div>
 
-    <!-- Feature 1: Motion Effects -->
+    <!-- Feature 1: All Devices -->
     <div class="grid gap-8 lg:gap-12 lg:grid-cols-2 items-center mb-16 sm:mb-24">
       <div class="feature-video-wrapper order-2 lg:order-1">
-        {featureVideos.motionEffects ? (
+        {featureVideos.allDevices ? (
           <video autoplay muted loop playsinline preload="metadata">
-            <source src={featureVideos.motionEffects} type="video/mp4" />
+            <source src={featureVideos.allDevices} type="video/mp4" />
           </video>
         ) : (
           <div class="w-full h-full flex items-center justify-center" style="color: var(--text-muted);">
-            <span class="text-sm">Motion effects clip</span>
+            <span class="text-sm">All devices clip</span>
           </div>
         )}
       </div>
       <div class="order-1 lg:order-2">
         <div class="inline-block text-xs font-medium uppercase tracking-widest px-3 py-1 rounded-full mb-4" style="background: var(--accent-glow); color: var(--accent);">
-          Motion Effects
+          All Devices
         </div>
         <h3 class="text-xl sm:text-2xl font-bold mb-3" style="color: var(--text-primary);">
-          Ken Burns, pan &amp; zoom
+          One slideshow, many screens
         </h3>
         <p style="color: var(--text-secondary); line-height: 1.7;">
-          Photos come alive with cinematic motion effects &mdash; gentle Ken Burns pans, smooth zooms,
-          and intelligent framing that highlights faces and points of interest.
+          Your slideshow can play on every connected screen in the house. Control it from any
+          device &mdash; even a FireTV remote. With cloud hosting, family across the country can
+          watch together, as if they were in the same room.
         </p>
       </div>
     </div>
 
-    <!-- Feature 2: Transitions -->
+    <!-- Feature 2: Multiple Topics -->
     <div class="grid gap-8 lg:gap-12 lg:grid-cols-2 items-center mb-16 sm:mb-24">
       <div class="order-1">
         <div class="inline-block text-xs font-medium uppercase tracking-widest px-3 py-1 rounded-full mb-4" style="background: var(--accent-glow); color: var(--accent);">
-          Transitions
+          Multiple Topics
         </div>
         <h3 class="text-xl sm:text-2xl font-bold mb-3" style="color: var(--text-primary);">
-          Smooth, elegant flow
+          Mix and match your memories
         </h3>
         <p style="color: var(--text-secondary); line-height: 1.7;">
-          Crossfades, wipes, and custom transitions keep the slideshow flowing naturally.
-          Each transition is chosen to match the mood and pacing of the moment.
+          A single-topic slideshow is great, but life isn&rsquo;t one-dimensional.
+          Mix travel, family, holidays, and everyday moments into a single slideshow
+          that reflects the full richness of your memories.
         </p>
       </div>
       <div class="feature-video-wrapper order-2">
@@ -153,35 +155,29 @@ const featureVideos = {
           </video>
         ) : (
           <div class="w-full h-full flex items-center justify-center" style="color: var(--text-muted);">
-            <span class="text-sm">Transitions clip</span>
+            <span class="text-sm">Multiple topics clip</span>
           </div>
         )}
       </div>
     </div>
 
-    <!-- Feature 3: Video Support -->
+    <!-- Feature 3: Connections -->
     <div class="grid gap-8 lg:gap-12 lg:grid-cols-2 items-center mb-16 sm:mb-24">
       <div class="feature-video-wrapper order-2 lg:order-1">
-        {featureVideos.videoSupport ? (
-          <video autoplay muted loop playsinline preload="metadata">
-            <source src={featureVideos.videoSupport} type="video/mp4" />
-          </video>
-        ) : (
-          <div class="w-full h-full flex items-center justify-center" style="color: var(--text-muted);">
-            <span class="text-sm">Video support clip</span>
-          </div>
-        )}
+        <img src="/connections-feature.svg" alt="Supported photo sources: OneDrive, Local Files, Pixabay, Google Photos, iCloud Photos" width="854" height="480" loading="lazy" />
       </div>
       <div class="order-1 lg:order-2">
         <div class="inline-block text-xs font-medium uppercase tracking-widest px-3 py-1 rounded-full mb-4" style="background: var(--accent-glow); color: var(--accent);">
-          Video Support
+          Connections
         </div>
         <h3 class="text-xl sm:text-2xl font-bold mb-3" style="color: var(--text-primary);">
-          Photos and videos together
+          One slideshow, many sources
         </h3>
         <p style="color: var(--text-secondary); line-height: 1.7;">
-          Seamlessly mix photos and video clips in the same slideshow.
-          Videos play inline with the same beautiful presentation and transitions.
+          Pull from OneDrive, Pixabay, or your local files &mdash; all in the same slideshow.
+          TwineLine supports migration from Google Photos or iCloud Photos.
+          We&rsquo;re also adding museum collections and public archives, so your memories
+          can be enriched with beautiful images from around the world.
         </p>
       </div>
     </div>
@@ -190,14 +186,15 @@ const featureVideos = {
     <div class="grid gap-8 lg:gap-12 lg:grid-cols-2 items-center">
       <div class="order-1">
         <div class="inline-block text-xs font-medium uppercase tracking-widest px-3 py-1 rounded-full mb-4" style="background: var(--accent-glow); color: var(--accent);">
-          Multi-Device
+          Your AI
         </div>
         <h3 class="text-xl sm:text-2xl font-bold mb-3" style="color: var(--text-primary);">
-          Synchronized across screens
+          Photo intelligence you own
         </h3>
         <p style="color: var(--text-secondary); line-height: 1.7;">
-          Run the same slideshow on multiple devices in perfect sync.
-          Control playback from any screen &mdash; ideal for gatherings and displays.
+          TwineLine uses AI to understand your photos &mdash; the people, places, and moments in them.
+          Unlike Google, Apple, or Microsoft, we don&rsquo;t lock those insights away or change the rules.
+          Your photo intelligence belongs to you, is controlled by you, and isn&rsquo;t accessible to anyone but you.
         </p>
       </div>
       <div class="feature-video-wrapper order-2">
