@@ -1,7 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-// Set to your R2 video URLs when ready
 const heroVideo = 'https://media.twineline.ai/hero-demo.mp4';
 const featureVideos = {
   allDevices: 'https://media.twineline.ai/multi-device.mp4',
@@ -205,44 +204,12 @@ const featureVideos = {
     </div>
   </section>
 
-  <!-- How it works -->
-  <section class="mx-auto max-w-5xl px-4 sm:px-6 py-12 sm:py-16">
-    <div class="text-center mb-10 sm:mb-12">
-      <h2 class="text-2xl sm:text-3xl font-bold" style="color: var(--text-primary);">Three steps to enjoy your favorite moments</h2>
-    </div>
-    <div class="grid gap-8 sm:grid-cols-3">
-      <div class="text-center">
-        <div class="w-12 h-12 rounded-full mx-auto flex items-center justify-center text-lg font-bold mb-4" style="background: #c49345; color: #fff;">
-          1
-        </div>
-        <h3 class="font-semibold mb-2" style="color: var(--text-primary);">Install server</h3>
-        <p class="text-sm" style="color: var(--text-secondary);">
-          On your computer or a host provider
-        </p>
-      </div>
-      <div class="text-center">
-        <div class="w-12 h-12 rounded-full mx-auto flex items-center justify-center text-lg font-bold mb-4" style="background: #c49345; color: #fff;">
-          2
-        </div>
-        <h3 class="font-semibold mb-2" style="color: var(--text-primary);">Connect libraries</h3>
-        <p class="text-sm" style="color: var(--text-secondary);">
-          OneDrive (or migrate from Google Photos or iCloud Photos), a local hard drive, or a public collection
-        </p>
-      </div>
-      <div class="text-center">
-        <div class="w-12 h-12 rounded-full mx-auto flex items-center justify-center text-lg font-bold mb-4" style="background: #c49345; color: #fff;">
-          3
-        </div>
-        <h3 class="font-semibold mb-2" style="color: var(--text-primary);">Create a director</h3>
-        <p class="text-sm" style="color: var(--text-secondary);">
-          Directors create dynamic slideshows based on topics you select
-        </p>
-      </div>
-    </div>
-    <div class="text-center mt-10">
-      <a href="/guide" class="btn-accent inline-block">
-        Click here to learn more and get started!
-      </a>
-    </div>
+  <!-- Get Started -->
+  <section class="mx-auto max-w-5xl px-4 sm:px-6 py-12 sm:py-16 text-center">
+    <h2 class="text-2xl sm:text-3xl font-bold mb-4" style="color: var(--text-primary);">Ready to try it?</h2>
+    <p class="mb-6" style="color: var(--text-secondary);">Setup takes about 15 minutes. We walk you through every step.</p>
+    <a href="/guide" class="btn-accent inline-block">
+      Get started
+    </a>
   </section>
 </BaseLayout>

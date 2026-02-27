@@ -10,13 +10,14 @@
   --glass-bg-hover: rgba(30, 30, 30, 0.85);
   --glass-border: rgba(255, 255, 255, 0.1);
   --glass-border-hover: rgba(255, 255, 255, 0.2);
+  --radio-border: rgba(255, 255, 255, 0.4);
   --glass-blur: 20px;
   --accent: #d4a056;
   --accent-hover: #c08d42;
   --accent-glow: rgba(212, 160, 86, 0.25);
   --text-primary: #f0f0f0;
-  --text-secondary: rgba(255, 255, 255, 0.6);
-  --text-muted: rgba(255, 255, 255, 0.4);
+  --text-secondary: rgba(255, 255, 255, 0.7);
+  --text-muted: rgba(255, 255, 255, 0.6);
   --bg-deep: #1a1a1a;
 }
 
@@ -31,7 +32,7 @@
 
 /* Glassmorphic panel */
 .glass {
-  background: var(--glass-bg);
+  background: rgb(31 32 38);
   backdrop-filter: blur(var(--glass-blur));
   -webkit-backdrop-filter: blur(var(--glass-blur));
   border: 1px solid var(--glass-border);
@@ -41,6 +42,13 @@
 .glass-hover:hover {
   background: var(--glass-bg-hover);
   border-color: var(--glass-border-hover);
+}
+
+/* Mostly-opaque content surface for dense/technical pages */
+.content-pane {
+  background: rgb(18 19 26 / 75%);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
 }
 
 /* Glassmorphic nav bar */
@@ -59,8 +67,13 @@
   border-radius: 10px;
   padding: 0.6rem 1.5rem;
   font-size: 0.875rem;
+  cursor: pointer;
   transition: all 0.2s ease;
   box-shadow: 0 0 20px rgba(196, 147, 69, 0.25);
+}
+
+.btn-accent:disabled {
+  cursor: not-allowed;
 }
 
 .btn-accent:hover {
@@ -77,6 +90,7 @@
   padding: 0.6rem 1.5rem;
   font-size: 0.875rem;
   border: 1px solid var(--glass-border);
+  cursor: pointer;
   transition: all 0.2s ease;
 }
 

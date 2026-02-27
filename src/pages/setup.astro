@@ -1,0 +1,18 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SetupWizard from '../components/SetupWizard.vue';
+---
+
+<BaseLayout title="Choose your setup - TwineLine" description="Pick your configuration and get step-by-step instructions to start using TwineLine.">
+  <div class="content-pane mx-auto max-w-4xl mt-6 sm:mt-10 mb-12 sm:mb-20 px-6 sm:px-10 py-8 sm:py-12">
+    <div class="mb-8 sm:mb-10">
+      <h1 class="text-2xl sm:text-3xl font-bold tracking-tight leading-tight" style="color: var(--text-primary);">Choose your setup</h1>
+      <p class="mt-2 text-sm" style="color: var(--text-secondary);">
+        Pick your configuration below and we will walk you through it step by step.
+        Most setups take 15&ndash;30 minutes from start to first slideshow.
+      </p>
+    </div>
+
+    <SetupWizard client:load />
+  </div>
+</BaseLayout>
