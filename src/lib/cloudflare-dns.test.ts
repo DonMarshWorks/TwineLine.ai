@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
-import { lookupDns } from "./cloudflare-dns";
+import { lookupDns, createDnsRecord, updateDnsRecord } from "./cloudflare-dns";
 
 const ZONE_ID = "test-zone-id";
 const API_TOKEN = "test-api-token";
@@ -135,5 +135,121 @@ describe("lookupDns", () => {
 
     const result = await lookupDns("alice", ZONE_ID, API_TOKEN);
     expect(result).toEqual({ ok: true, records: [] });
+  });
+});
+
+describe("createDnsRecord", () => {
+  beforeEach(() => {
+    vi.restoreAllMocks();
+  });
+
+  it("sends POST with correct body and returns ok on success", async () => {
+    const mockFetch = vi.fn().mockResolvedValue({ ok: true, status: 200 });
+    vi.stubGlobal("fetch", mockFetch);
+
+    const result = await createDnsRecord("don", "1.2.3.4", ZONE_ID, API_TOKEN);
+    expect(result).toEqual({ ok: true });
+
+    const [url, opts] = mockFetch.mock.calls[0];
+    expect(url).toContain(`/zones/${ZONE_ID}/dns_records`);
+    expect(opts.method).toBe("POST");
+    const body = JSON.parse(opts.body);
+    expect(body).toEqual({
+      type: "A",
+      name: "don.twineline.ai",
+      content: "1.2.3.4",
+      proxied: true,
+      ttl: 1,
+    });
+    expect(opts.headers["Content-Type"]).toBe("application/json");
+    expect(opts.headers.Authorization).toBe(`Bearer ${API_TOKEN}`);
+  });
+
+  it("returns error on Cloudflare API failure", async () => {
+    vi.stubGlobal(
+      "fetch",
+      vi.fn().mockResolvedValue({ ok: false, status: 400 }),
+    );
+
+    const result = await createDnsRecord("don", "1.2.3.4", ZONE_ID, API_TOKEN);
+    expect(result.ok).toBe(false);
+  });
+
+  it("retries on 500 errors", async () => {
+    const mockFetch = vi
+      .fn()
+      .mockResolvedValueOnce({ ok: false, status: 500 })
+      .mockResolvedValueOnce({ ok: true, status: 200 });
+    vi.stubGlobal("fetch", mockFetch);
+
+    const result = await createDnsRecord("don", "1.2.3.4", ZONE_ID, API_TOKEN);
+    expect(result).toEqual({ ok: true });
+    expect(mockFetch).toHaveBeenCalledTimes(2);
+  });
+});
+
+describe("updateDnsRecord", () => {
+  beforeEach(() => {
+    vi.restoreAllMocks();
+  });
+
+  it("sends PUT with correct URL and body", async () => {
+    const mockFetch = vi.fn().mockResolvedValue({ ok: true, status: 200 });
+    vi.stubGlobal("fetch", mockFetch);
+
+    const result = await updateDnsRecord(
+      "record-123",
+      "don",
+      "5.6.7.8",
+      ZONE_ID,
+      API_TOKEN,
+    );
+    expect(result).toEqual({ ok: true });
+
+    const [url, opts] = mockFetch.mock.calls[0];
+    expect(url).toContain(`/zones/${ZONE_ID}/dns_records/record-123`);
+    expect(opts.method).toBe("PUT");
+    const body = JSON.parse(opts.body);
+    expect(body).toEqual({
+      type: "A",
+      name: "don.twineline.ai",
+      content: "5.6.7.8",
+      proxied: true,
+      ttl: 1,
+    });
+  });
+
+  it("returns error on Cloudflare API failure", async () => {
+    vi.stubGlobal(
+      "fetch",
+      vi.fn().mockResolvedValue({ ok: false, status: 403 }),
+    );
+
+    const result = await updateDnsRecord(
+      "record-123",
+      "don",
+      "5.6.7.8",
+      ZONE_ID,
+      API_TOKEN,
+    );
+    expect(result.ok).toBe(false);
+  });
+
+  it("retries on network error and succeeds", async () => {
+    const mockFetch = vi
+      .fn()
+      .mockRejectedValueOnce(new Error("network fail"))
+      .mockResolvedValueOnce({ ok: true, status: 200 });
+    vi.stubGlobal("fetch", mockFetch);
+
+    const result = await updateDnsRecord(
+      "record-123",
+      "don",
+      "5.6.7.8",
+      ZONE_ID,
+      API_TOKEN,
+    );
+    expect(result).toEqual({ ok: true });
+    expect(mockFetch).toHaveBeenCalledTimes(2);
   });
 });
