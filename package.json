@@ -8,9 +8,12 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
+    "test": "vitest run",
+    "test:watch": "vitest",
     "deploy": "astro build && wrangler pages deploy dist/ --project-name twineline-ai"
   },
   "dependencies": {
+    "@astrojs/check": "^0.9.6",
     "@astrojs/cloudflare": "^12.6.12",
     "@astrojs/starlight": "^0.37.6",
     "@astrojs/vue": "^5.1.4",
@@ -18,6 +21,10 @@
     "astro": "^5.6.1",
     "sharp": "^0.34.2",
     "tailwindcss": "^4.2.0",
+    "typescript": "^5.9.3",
     "vue": "^3.5.28"
+  },
+  "devDependencies": {
+    "vitest": "^4.0.18"
   }
 }
