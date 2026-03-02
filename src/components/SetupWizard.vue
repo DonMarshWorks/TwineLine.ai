@@ -303,7 +303,7 @@ async function copyText(text: string) {
               style="color: var(--text-secondary)"
             >
               Always on, accessible from anywhere. Free credit covers at least
-              one month, then ~$5/month.
+              one month, then ~$7/month.
             </span>
           </span>
         </label>
@@ -514,7 +514,7 @@ async function copyText(text: string) {
                 <strong style="color: var(--text-primary)">Type:</strong>
                 Cost-Optimized &rarr; x86 &rarr;
                 <strong style="color: var(--text-primary)">CX23</strong> (2
-                vCPU, 4 GB RAM, ~$5/month). This handles photos, video, and AI
+                vCPU, 4 GB RAM, ~$7/month). This handles photos, video, and AI
                 analysis &mdash; no need to choose a higher tier.
               </li>
               <li>
