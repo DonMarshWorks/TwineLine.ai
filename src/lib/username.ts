@@ -32,8 +32,8 @@ export function validateUsername(username: string): UsernameValidation {
 
   const normalized = username.toLowerCase().trim();
 
-  if (normalized.length < 1) {
-    return { valid: false, error: "Username is required" };
+  if (normalized.length < 2) {
+    return { valid: false, error: "Username must be at least 2 characters" };
   }
 
   if (normalized.length > 63) {

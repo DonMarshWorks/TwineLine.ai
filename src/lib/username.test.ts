@@ -3,7 +3,7 @@ import { validateUsername, validateIpv4 } from "./username";
 
 describe("validateUsername", () => {
   describe("valid usernames", () => {
-    it.each(["a", "ab", "alice", "bob123", "my-server", "a1b", "a".repeat(63)])(
+    it.each(["ab", "alice", "bob123", "my-server", "a1b", "a".repeat(63)])(
       "accepts '%s'",
       (name) => {
         expect(validateUsername(name)).toEqual({ valid: true });
@@ -18,8 +18,10 @@ describe("validateUsername", () => {
       expect(result.error).toMatch(/required/i);
     });
 
-    it("accepts exactly 1 character", () => {
-      expect(validateUsername("a")).toEqual({ valid: true });
+    it("rejects 1-char username", () => {
+      const result = validateUsername("a");
+      expect(result.valid).toBe(false);
+      expect(result.error).toMatch(/at least 2/);
     });
 
     it("accepts exactly 2 characters", () => {
