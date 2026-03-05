@@ -58,7 +58,11 @@ export async function lookupDns(
           );
           continue;
         }
-        return { ok: false, status: 502, message: "Could not check DNS records" };
+        return {
+          ok: false,
+          status: 502,
+          message: `DNS lookup failed (upstream ${response.status})`,
+        };
       }
 
       const data = (await response.json()) as { result: DnsRecord[] };
@@ -164,7 +168,7 @@ async function mutateWithRetry(
         return {
           ok: false,
           status: 500,
-          message: "Cloudflare API error",
+          message: `DNS mutation failed (upstream ${response.status})`,
         };
       }
 
