@@ -13,8 +13,7 @@ export default defineConfig({
     starlight({
       title: 'TwineLine.ai',
       logo: {
-        light: './src/assets/logo-light.svg',
-        dark: './src/assets/logo-dark.svg',
+        src: './public/logo.svg',
         replacesTitle: false,
       },
       social: [

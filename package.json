@@ -8,6 +8,8 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
+    "format": "prettier --write \"src/**/*.{ts,astro,vue,css}\"",
+    "lint": "prettier --check \"src/**/*.{ts,astro,vue,css}\" && astro check",
     "test": "vitest run",
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",
@@ -27,6 +29,8 @@
   },
   "devDependencies": {
     "@vitest/coverage-v8": "^4.0.18",
+    "prettier": "^3.8.1",
+    "prettier-plugin-astro": "^0.14.1",
     "vitest": "^4.0.18"
   }
 }

@@ -10,6 +10,18 @@
 		"binding": "ASSETS",
 		"directory": "./dist"
 	},
+	"kv_namespaces": [
+		{
+			"binding": "GOOGLE_AUTH_KV",
+			"id": "d82cf4ee82d54d75921ac9ed44cc43f4"
+		}
+	],
+	"r2_buckets": [
+		{
+			"binding": "RELEASES",
+			"bucket_name": "twineline-releases"
+		}
+	],
 	"observability": {
     "enabled": true
   }
