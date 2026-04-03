@@ -88,14 +88,14 @@ export function validateIpv4(ip: string): Ipv4Validation {
   // Reject private, loopback, link-local, multicast, and reserved ranges
   const [a, b] = octets;
   if (
-    a === 0 ||           // 0.0.0.0/8  — current network
-    a === 10 ||          // 10.0.0.0/8 — private
-    a === 127 ||         // 127.0.0.0/8 — loopback
-    (a === 169 && b === 254) ||  // 169.254.0.0/16 — link-local
+    a === 0 || // 0.0.0.0/8  — current network
+    a === 10 || // 10.0.0.0/8 — private
+    a === 127 || // 127.0.0.0/8 — loopback
+    (a === 169 && b === 254) || // 169.254.0.0/16 — link-local
     (a === 172 && b >= 16 && b <= 31) || // 172.16.0.0/12 — private
-    (a === 192 && b === 168) ||  // 192.168.0.0/16 — private
+    (a === 192 && b === 168) || // 192.168.0.0/16 — private
     (a === 100 && b >= 64 && b <= 127) || // 100.64.0.0/10 — CGNAT
-    a >= 224             // 224.0.0.0/4 multicast + 240.0.0.0/4 reserved
+    a >= 224 // 224.0.0.0/4 multicast + 240.0.0.0/4 reserved
   ) {
     return { valid: false, error: "Public IPv4 address required" };
   }

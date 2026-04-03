@@ -1,198 +1,1050 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
+import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
-<BaseLayout title="How TwineLine works" description="Understand how TwineLine turns your photos into beautiful daily slideshows on your TV.">
-  <div class="content-pane mx-auto max-w-4xl mt-6 sm:mt-10 mb-12 sm:mb-20 px-6 sm:px-10 py-8 sm:py-12">
-
+<BaseLayout
+  title="How TwineLine works"
+  description="Understand how TwineLine turns your photos into beautiful daily slideshows on your TV."
+>
+  <div
+    class="content-pane mx-auto max-w-4xl mt-0 md:mt-10 mb-0 md:mb-20 px-4 md:px-10 py-6 md:py-12 rounded-none md:rounded-2xl border-0 md:border"
+    style="--tw-border-opacity:1; border-color: rgba(255, 255, 255, 0.15);"
+  >
     <!-- Intro -->
     <section class="pb-6 sm:pb-8">
-      <h1 class="text-2xl sm:text-3xl font-bold tracking-tight leading-tight" style="color: var(--text-primary);">
+      <h1
+        class="text-2xl sm:text-3xl font-bold tracking-tight leading-tight"
+        style="color: var(--text-primary);"
+      >
         How TwineLine works
       </h1>
-      <p class="mt-3 text-base leading-relaxed" style="color: var(--text-secondary);">
-        TwineLine connects your photo libraries to a server that builds a fresh slideshow every day,
-        then streams it to any screen in your house. Here are the most common ways to set it up.
+      <p
+        class="mt-3 text-base leading-relaxed"
+        style="color: var(--text-secondary);"
+      >
+        TwineLine puts together three pieces to create and play dynamic
+        slideshows:
+      </p>
+
+      <!-- Three-piece diagram -->
+      <div class="mt-8 flex flex-col lg:flex-row items-stretch gap-0">
+        <!-- Box 1: Photos & Videos -->
+        <div class="glass p-5 flex-1 flex flex-col items-center text-center">
+          <h3 class="text-sm font-bold mb-2" style="color: var(--accent);">
+            Photos &amp; videos
+          </h3>
+          <!-- Stacked photos graphic (replace with static images later) -->
+          <div class="relative w-32 h-32 mb-2 flex items-center justify-center">
+            <img
+              src="/hiw-photo-3-sm.jpg"
+              alt=""
+              class="absolute left-2 w-24 h-16 rounded object-cover"
+              style="transform: rotate(-6deg); margin-top: -8px;"
+            />
+            <img
+              src="/hiw-photo-2-sm.jpg"
+              alt=""
+              class="absolute left-4 w-24 h-16 rounded object-cover"
+              style="transform: rotate(-2deg); margin-top: -4px;"
+            />
+            <img
+              src="/hiw-photo-1-sm.jpg"
+              alt=""
+              class="absolute left-6 w-24 h-16 rounded object-cover"
+              style="transform: rotate(2deg);"
+            />
+          </div>
+          <p
+            class="text-xs leading-relaxed"
+            style="color: var(--text-secondary);"
+          >
+            Photos and videos in a local drive and/or online collections like
+            OneDrive, Google Photos, iCloud, Pixabay, etc.
+          </p>
+        </div>
+
+        <!-- Arrow 1 -->
+        <div
+          class="flex items-center justify-center px-2 py-3 lg:py-0"
+          style="color: var(--accent);"
+        >
+          <svg
+            class="w-6 h-6 hidden lg:block"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"></path></svg
+          >
+          <svg
+            class="w-6 h-6 lg:hidden"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"><path d="M12 5v14M5 13l7 7 7-7"></path></svg
+          >
+        </div>
+
+        <!-- Box 2: TwineLine Server -->
+        <div
+          class="glass p-5 flex-1 flex flex-col items-center text-center"
+          style="border-color: var(--accent); border-width: 1px;"
+        >
+          <h3 class="text-sm font-bold mb-2" style="color: var(--accent);">
+            TwineLine server
+          </h3>
+          <!-- Head silhouette (side profile) with AI star and thought bubble -->
+          <div class="relative w-44 h-32 mb-2 flex items-center justify-start">
+            <!-- Head with AI star -->
+            <svg
+              width="70"
+              height="90"
+              viewBox="0 0 70 90"
+              class="ml-2"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <defs>
+                <radialGradient
+                  id="hiw-star-gradient"
+                  cx="50%"
+                  cy="50%"
+                  r="50%"
+                  gradientUnits="objectBoundingBox"
+                >
+                  <stop offset="0%" stop-color="#e8f4ff"></stop>
+                  <stop offset="40%" stop-color="#b3d9ff"></stop>
+                  <stop offset="100%" stop-color="#4dabf7"></stop>
+                </radialGradient>
+                <filter
+                  id="hiw-star-glow"
+                  x="-50%"
+                  y="-50%"
+                  width="200%"
+                  height="200%"
+                >
+                  <feGaussianBlur
+                    in="SourceGraphic"
+                    stdDeviation="2"
+                    result="blur"></feGaussianBlur>
+                  <feMerge>
+                    <feMergeNode in="blur"></feMergeNode>
+                    <feMergeNode in="SourceGraphic"></feMergeNode>
+                  </feMerge>
+                </filter>
+              </defs>
+              <!-- Head outline with face -->
+              <g stroke="var(--accent)" stroke-width="1.5" opacity="0.8">
+                <path
+                  d="M35 15 C 20 15, 10 30, 10 50 C 10 70, 20 85, 35 85 C 50 85, 60 70, 60 50 C 60 30, 50 15, 35 15 Z"
+                  fill="#404040"></path>
+                <path d="M25 45 L30 45" fill="none"></path>
+                <path d="M40 45 L45 45" fill="none"></path>
+                <path d="M30 65 Q35 70 40 65" fill="none"></path>
+              </g>
+              <!-- AI star in forehead/brain area -->
+              <g transform="translate(35,30) scale(0.25)">
+                <path
+                  d="M0 0C37.598 18.004 40.074 23.045 31.344 63.807 49.348 26.209 54.389 23.733 95.151 32.463 57.553 14.459 55.076 9.418 63.807-31.344 45.803 6.254 40.762 8.73 0 0"
+                  fill="url(#hiw-star-gradient)"
+                  filter="url(#hiw-star-glow)"
+                  transform="translate(-47,-16)"></path>
+              </g>
+            </svg>
+            <!-- Thought bubbles (rising from top of head) -->
+            <div class="absolute" style="left: 62px; top: 30px;">
+              <div
+                class="rounded-full"
+                style="width: 6px; height: 6px; background: var(--text-muted); opacity: 0.4;"
+              >
+              </div>
+            </div>
+            <div class="absolute" style="left: 74px; top: 24px;">
+              <div
+                class="rounded-full"
+                style="width: 10px; height: 10px; background: var(--text-muted); opacity: 0.4;"
+              >
+              </div>
+            </div>
+            <!-- Thought cloud with hero video -->
+            <div
+              class="absolute overflow-hidden"
+              style="left: 88px; top: 16px; width: 82px; height: 53px; border: 1px solid var(--text-muted); opacity: 0.9; border-radius: 8px;"
+            >
+              <video
+                id="hiw-hero-video"
+                autoplay
+                muted
+                loop
+                playsinline
+                preload="metadata"
+                class="w-full h-full object-cover"
+              >
+                <source src="/hiw-hero-sm.mp4" type="video/mp4" />
+              </video>
+            </div>
+          </div>
+          <p
+            class="text-xs leading-relaxed"
+            style="color: var(--text-secondary);"
+          >
+            AI organizes your photos by people, places, and moments to create a
+            unique slideshow each day.
+          </p>
+        </div>
+
+        <!-- Arrow 2 -->
+        <div
+          class="flex items-center justify-center px-2 py-3 lg:py-0"
+          style="color: var(--accent);"
+        >
+          <svg
+            class="w-6 h-6 hidden lg:block"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"></path></svg
+          >
+          <svg
+            class="w-6 h-6 lg:hidden"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"><path d="M12 5v14M5 13l7 7 7-7"></path></svg
+          >
+        </div>
+
+        <!-- Box 3: Devices -->
+        <div class="glass p-5 flex-1 flex flex-col items-center text-center">
+          <h3 class="text-sm font-bold mb-2" style="color: var(--accent);">
+            Devices
+          </h3>
+          <!-- Device frames with videos: tablet, TV, phone (landscape) -->
+          <div
+            class="relative w-48 h-32 mb-2 flex items-center justify-center gap-2"
+          >
+            <!-- Tablet (portrait ~3:4) -->
+            <div
+              class="relative rounded overflow-hidden"
+              style="width: 32px; height: 40px; outline: 2px solid var(--text-muted); opacity: 0.8;"
+            >
+              <video
+                autoplay
+                muted
+                loop
+                playsinline
+                preload="metadata"
+                class="w-full h-full object-contain"
+              >
+                <source src="/device-tablet-sm.mp4" type="video/mp4" />
+              </video>
+            </div>
+            <!-- TV (landscape 16:9) -->
+            <div class="relative flex flex-col items-center">
+              <div
+                class="rounded overflow-hidden"
+                style="width: 96px; height: 62px; border: 2px solid var(--text-muted); opacity: 0.8;"
+              >
+                <video
+                  autoplay
+                  muted
+                  loop
+                  playsinline
+                  preload="metadata"
+                  class="w-full h-full object-cover"
+                >
+                  <source src="/device-tv-sm.mp4" type="video/mp4" />
+                </video>
+              </div>
+              <div
+                style="width: 24px; height: 4px; border-bottom: 2px solid var(--text-muted); opacity: 0.6;"
+              >
+              </div>
+            </div>
+            <!-- Phone (landscape ~16:9) -->
+            <div
+              class="relative rounded overflow-hidden"
+              style="width: 40px; height: 23px; border: 2px solid var(--text-muted); opacity: 0.8;"
+            >
+              <video
+                autoplay
+                muted
+                loop
+                playsinline
+                preload="metadata"
+                class="w-full h-full object-cover"
+              >
+                <source src="/device-phone-sm.mp4" type="video/mp4" />
+              </video>
+            </div>
+          </div>
+          <p
+            class="text-xs leading-relaxed"
+            style="color: var(--text-secondary);"
+          >
+            Slideshows can be viewed on almost any device with a modern browser,
+            all at the same time.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- TwineLine server -->
+    <section class="py-3 sm:py-5">
+      <h2
+        class="text-xl sm:text-2xl font-bold mb-4"
+        style="color: var(--text-primary);"
+      >
+        TwineLine server
+      </h2>
+      <p
+        class="text-sm sm:text-base leading-relaxed mb-4"
+        style="color: var(--text-secondary);"
+      >
+        The TwineLine server is the &ldquo;brains&rdquo; of the app. It analyzes
+        photos, creates slideshows, synchronizes playback on multiple devices,
+        and responds to user controls.
+      </p>
+      <p
+        class="text-sm sm:text-base leading-relaxed mb-4"
+        style="color: var(--text-secondary);"
+      >
+        Your biggest choice (which you can change at any time) is where the
+        server runs. You can run a local server on a computer in your home for
+        free (Windows, Mac, or Linux). This provides maximum control and
+        privacy.
+      </p>
+      <p
+        class="text-sm sm:text-base leading-relaxed mb-4"
+        style="color: var(--text-secondary);"
+      >
+        Alternatively, a cloud server can run for less than $7 per month. This
+        is the easiest option, provides good speed for AI analysis, and allows
+        your friends and family to see your daily slideshow (protected by a
+        password) anywhere in the world. You can try it for free for a month and
+        then move to your own computer if you prefer.
+      </p>
+      <p
+        class="text-sm sm:text-base leading-relaxed"
+        style="color: var(--text-secondary);"
+      >
+        If you&rsquo;re torn between these options, we suggest trying the cloud
+        server. It can do a lot of AI analysis of your collection during the
+        free month. The results can be copied to your own computer later if you
+        prefer not to pay for the cloud server (and don&rsquo;t care about web
+        access for your slideshows).
+      </p>
+    </section>
+
+    <!-- Photos & videos -->
+    <section class="py-3 sm:py-5">
+      <h2
+        class="text-xl sm:text-2xl font-bold mb-4"
+        style="color: var(--text-primary);"
+      >
+        Photos &amp; videos
+      </h2>
+      <p
+        class="text-sm sm:text-base leading-relaxed mb-4"
+        style="color: var(--text-secondary);"
+      >
+        A local server can create slideshows from photos and videos stored on
+        your computer&rsquo;s hard drive. Both types of server can access photos
+        on OneDrive as well as public photo collections like Pixabay.
+      </p>
+      <p
+        class="text-sm sm:text-base leading-relaxed mb-4"
+        style="color: var(--text-secondary);"
+      >
+        <strong style="color: var(--text-primary);">Why OneDrive?</strong> Because
+        Microsoft provides operating system independent access to your online photo
+        collection that TwineLine needs. Apple and Google do not. But don&rsquo;t
+        worry &mdash; TwineLine can copy large collections from Google/iCloud Photos
+        to OneDrive if you can wait a day or two for the task to complete.
+      </p>
+      <p
+        class="text-sm sm:text-base leading-relaxed"
+        style="color: var(--text-secondary);"
+      >
+        If you don&rsquo;t have a OneDrive account, you can get an account with
+        5 GB of storage for free. That&rsquo;s only enough for a small photo
+        collection, but an account with 1 TB of storage (1000 GB) costs less
+        than $9 per month paid annually. <a
+          href="/onedrive"
+          class="nav-link"
+          style="color: var(--accent);">More details</a
+        >.
+      </p>
+    </section>
+
+    <!-- Devices -->
+    <section class="py-3 sm:py-5">
+      <h2
+        class="text-xl sm:text-2xl font-bold mb-4"
+        style="color: var(--text-primary);"
+      >
+        Devices
+      </h2>
+      <p
+        class="text-sm sm:text-base leading-relaxed"
+        style="color: var(--text-secondary);"
+      >
+        A TwineLine slideshow can be viewed or controlled using any device with
+        a modern browser (Chrome, Safari, and Edge have been tested). To connect
+        to a TwineLine server on a local computer, simply enter the
+        computer&rsquo;s IP address in the browser&rsquo;s search bar (the
+        device and the server must be on the same local network).
+      </p>
+    </section>
+
+    <!-- Focus on flexibility -->
+    <section class="py-3 sm:py-5">
+      <h2
+        class="text-xl sm:text-2xl font-bold mb-4"
+        style="color: var(--text-primary);"
+      >
+        Focus on flexibility
+      </h2>
+      <p
+        class="text-sm sm:text-base leading-relaxed mb-6"
+        style="color: var(--text-secondary);"
+      >
+        TwineLine is very flexible about where your photos and videos are
+        stored, what server computer you have or rent, and the kinds of devices
+        that can display your slideshows. It might take a little time to get
+        things perfectly set up for your wishes and your budget.
+      </p>
+
+      <h3
+        class="text-base sm:text-lg font-semibold mb-3"
+        style="color: var(--text-primary);"
+      >
+        Where are your files?
+      </h3>
+      <p
+        class="text-sm sm:text-base leading-relaxed mb-4"
+        style="color: var(--text-secondary);"
+      >
+        Different companies have different policies about how apps like
+        TwineLine can access photos and videos in their collections.
+      </p>
+      <p
+        class="text-sm sm:text-base leading-relaxed mb-4"
+        style="color: var(--text-secondary);"
+      >
+        <em style="color: var(--text-primary);">Microsoft OneDrive</em> provides the
+        best policy, allowing TwineLine to directly access the files and location
+        data recorded by phones and modern cameras.
+      </p>
+      <p
+        class="text-sm sm:text-base leading-relaxed mb-4"
+        style="color: var(--text-secondary);"
+      >
+        <em style="color: var(--text-primary);">Apple</em> also provides good access,
+        but only if you are running TwineLine on a Mac computer. Apple does not provide
+        a good way to migrate your files to OneDrive, so a Mac is required.
+      </p>
+      <p
+        class="text-sm sm:text-base leading-relaxed"
+        style="color: var(--text-secondary);"
+      >
+        <em style="color: var(--text-primary);">Google Photos</em> closed access in
+        2025, making things difficult but not impossible. TwineLine provides ways
+        to migrate your Google Photos to OneDrive where everything works smoothly.
       </p>
     </section>
 
     <!-- Setup A: Smart TV + your computer -->
-    <section class="py-6 sm:py-8" style="border-top: 1px solid var(--glass-border);">
-      <h2 class="text-lg sm:text-xl font-bold mb-1" style="color: var(--accent);">Smart TV + your computer</h2>
-      <p class="text-sm mb-5" style="color: var(--text-muted);">Best if your TV has Google TV or Fire TV built in. No extra hardware needed.</p>
+    <section class="py-3 sm:py-5">
+      <h2
+        class="text-lg sm:text-xl font-bold mb-1"
+        style="color: var(--accent);"
+      >
+        Smart TV + your computer
+      </h2>
+      <p class="text-sm mb-5" style="color: var(--text-muted);">
+        Best if your TV has Google TV or Fire TV built in. No extra hardware
+        needed.
+      </p>
 
-      <div class="flex flex-col sm:flex-row items-center sm:items-stretch gap-2 sm:gap-0">
-        <div class="glass p-3 sm:p-4 text-center flex-1 w-full sm:w-auto min-w-0 flex flex-col items-center justify-center">
-          <svg class="w-5 h-5 mb-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent);">
-            <path d="M6.5 19h11a4.5 4.5 0 0 0 1.09-8.87 6 6 0 0 0-11.18 0A4.5 4.5 0 0 0 6.5 19z" />
+      <div
+        class="flex flex-col sm:flex-row items-center sm:items-stretch gap-2 sm:gap-0"
+      >
+        <div
+          class="glass p-3 sm:p-4 text-center flex-1 w-full sm:w-auto min-w-0 flex flex-col items-center justify-center"
+        >
+          <svg
+            class="w-5 h-5 mb-1"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            style="color: var(--accent);"
+          >
+            <path
+              d="M6.5 19h11a4.5 4.5 0 0 0 1.09-8.87 6 6 0 0 0-11.18 0A4.5 4.5 0 0 0 6.5 19z"
+            ></path>
           </svg>
-          <h4 class="text-xs font-semibold" style="color: var(--text-primary);">Your photos</h4>
+          <h4 class="text-xs font-semibold" style="color: var(--text-primary);">
+            Your photos
+          </h4>
         </div>
 
-        <div class="flex items-center justify-center px-2 sm:px-3 py-1 sm:py-0" style="color: var(--accent);">
-          <svg class="w-4 h-4 hidden sm:block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7" /></svg>
-          <svg class="w-4 h-4 sm:hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 13l7 7 7-7" /></svg>
+        <div
+          class="flex items-center justify-center px-2 sm:px-3 py-1 sm:py-0"
+          style="color: var(--accent);"
+        >
+          <svg
+            class="w-4 h-4 hidden sm:block"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"></path></svg
+          >
+          <svg
+            class="w-4 h-4 sm:hidden"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"><path d="M12 5v14M5 13l7 7 7-7"></path></svg
+          >
         </div>
 
-        <div class="glass p-3 sm:p-4 text-center flex-1 w-full sm:w-auto min-w-0 flex flex-col items-center justify-center" style="border-color: var(--accent); border-width: 1px;">
-          <svg class="w-5 h-5 mb-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent);">
-            <rect x="2" y="3" width="20" height="14" rx="2" /><path d="M8 21h8M12 17v4" />
+        <div
+          class="glass p-3 sm:p-4 text-center flex-1 w-full sm:w-auto min-w-0 flex flex-col items-center justify-center"
+          style="border-color: var(--accent); border-width: 1px;"
+        >
+          <svg
+            class="w-5 h-5 mb-1"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            style="color: var(--accent);"
+          >
+            <rect x="2" y="3" width="20" height="14" rx="2"></rect><path
+              d="M8 21h8M12 17v4"></path>
           </svg>
-          <h4 class="text-xs font-semibold" style="color: var(--text-primary);">Your computer</h4>
+          <h4 class="text-xs font-semibold" style="color: var(--text-primary);">
+            Your computer
+          </h4>
         </div>
 
-        <div class="flex flex-col items-center justify-center px-2 sm:px-3 py-1 sm:py-0">
-          <span class="text-[9px] font-medium uppercase tracking-wider mb-0.5" style="color: var(--text-muted);">WiFi</span>
-          <svg class="w-4 h-4 hidden sm:block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent);"><path d="M5 12h14M13 5l7 7-7 7" /></svg>
-          <svg class="w-4 h-4 sm:hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent);"><path d="M12 5v14M5 13l7 7 7-7" /></svg>
+        <div
+          class="flex flex-col items-center justify-center px-2 sm:px-3 py-1 sm:py-0"
+        >
+          <span
+            class="text-[9px] font-medium uppercase tracking-wider mb-0.5"
+            style="color: var(--text-muted);">WiFi</span
+          >
+          <svg
+            class="w-4 h-4 hidden sm:block"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            style="color: var(--accent);"
+            ><path d="M5 12h14M13 5l7 7-7 7"></path></svg
+          >
+          <svg
+            class="w-4 h-4 sm:hidden"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            style="color: var(--accent);"
+            ><path d="M12 5v14M5 13l7 7 7-7"></path></svg
+          >
         </div>
 
-        <div class="glass p-3 sm:p-4 text-center flex-1 w-full sm:w-auto min-w-0 flex flex-col items-center justify-center">
-          <svg class="w-5 h-5 mb-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent);">
-            <rect x="2" y="3" width="20" height="14" rx="2" /><path d="M8 21h8M12 17v4" />
+        <div
+          class="glass p-3 sm:p-4 text-center flex-1 w-full sm:w-auto min-w-0 flex flex-col items-center justify-center"
+        >
+          <svg
+            class="w-5 h-5 mb-1"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            style="color: var(--accent);"
+          >
+            <rect x="2" y="3" width="20" height="14" rx="2"></rect><path
+              d="M8 21h8M12 17v4"></path>
           </svg>
-          <h4 class="text-xs font-semibold" style="color: var(--text-primary);">Smart TV</h4>
+          <h4 class="text-xs font-semibold" style="color: var(--text-primary);">
+            Smart TV
+          </h4>
         </div>
       </div>
 
-      <p class="text-xs mt-3" style="color: var(--text-muted);">Cost: free. Runs when your computer is on.</p>
+      <p class="text-xs mt-3" style="color: var(--text-muted);">
+        Cost: free. Runs when your computer is on.
+      </p>
     </section>
 
     <!-- Setup B: Streaming stick + your computer -->
-    <section class="py-6 sm:py-8" style="border-top: 1px solid var(--glass-border);">
-      <h2 class="text-lg sm:text-xl font-bold mb-1" style="color: var(--accent);">Streaming stick + your computer</h2>
-      <p class="text-sm mb-5" style="color: var(--text-muted);">Best for older TVs without a built-in smart platform.</p>
+    <section class="py-3 sm:py-5">
+      <h2
+        class="text-lg sm:text-xl font-bold mb-1"
+        style="color: var(--accent);"
+      >
+        Streaming stick + your computer
+      </h2>
+      <p class="text-sm mb-5" style="color: var(--text-muted);">
+        Best for older TVs without a built-in smart platform.
+      </p>
 
-      <div class="flex flex-col sm:flex-row items-center sm:items-stretch gap-2 sm:gap-0">
-        <div class="glass p-3 sm:p-4 text-center flex-1 w-full sm:w-auto min-w-0 flex flex-col items-center justify-center">
-          <svg class="w-5 h-5 mb-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent);">
-            <path d="M6.5 19h11a4.5 4.5 0 0 0 1.09-8.87 6 6 0 0 0-11.18 0A4.5 4.5 0 0 0 6.5 19z" />
+      <div
+        class="flex flex-col sm:flex-row items-center sm:items-stretch gap-2 sm:gap-0"
+      >
+        <div
+          class="glass p-3 sm:p-4 text-center flex-1 w-full sm:w-auto min-w-0 flex flex-col items-center justify-center"
+        >
+          <svg
+            class="w-5 h-5 mb-1"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            style="color: var(--accent);"
+          >
+            <path
+              d="M6.5 19h11a4.5 4.5 0 0 0 1.09-8.87 6 6 0 0 0-11.18 0A4.5 4.5 0 0 0 6.5 19z"
+            ></path>
           </svg>
-          <h4 class="text-xs font-semibold" style="color: var(--text-primary);">Your photos</h4>
+          <h4 class="text-xs font-semibold" style="color: var(--text-primary);">
+            Your photos
+          </h4>
         </div>
 
-        <div class="flex items-center justify-center px-2 sm:px-3 py-1 sm:py-0" style="color: var(--accent);">
-          <svg class="w-4 h-4 hidden sm:block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7" /></svg>
-          <svg class="w-4 h-4 sm:hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 13l7 7 7-7" /></svg>
+        <div
+          class="flex items-center justify-center px-2 sm:px-3 py-1 sm:py-0"
+          style="color: var(--accent);"
+        >
+          <svg
+            class="w-4 h-4 hidden sm:block"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"></path></svg
+          >
+          <svg
+            class="w-4 h-4 sm:hidden"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"><path d="M12 5v14M5 13l7 7 7-7"></path></svg
+          >
         </div>
 
-        <div class="glass p-3 sm:p-4 text-center flex-1 w-full sm:w-auto min-w-0 flex flex-col items-center justify-center" style="border-color: var(--accent); border-width: 1px;">
-          <svg class="w-5 h-5 mb-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent);">
-            <rect x="2" y="3" width="20" height="14" rx="2" /><path d="M8 21h8M12 17v4" />
+        <div
+          class="glass p-3 sm:p-4 text-center flex-1 w-full sm:w-auto min-w-0 flex flex-col items-center justify-center"
+          style="border-color: var(--accent); border-width: 1px;"
+        >
+          <svg
+            class="w-5 h-5 mb-1"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            style="color: var(--accent);"
+          >
+            <rect x="2" y="3" width="20" height="14" rx="2"></rect><path
+              d="M8 21h8M12 17v4"></path>
           </svg>
-          <h4 class="text-xs font-semibold" style="color: var(--text-primary);">Your computer</h4>
+          <h4 class="text-xs font-semibold" style="color: var(--text-primary);">
+            Your computer
+          </h4>
         </div>
 
-        <div class="flex flex-col items-center justify-center px-2 sm:px-3 py-1 sm:py-0">
-          <span class="text-[9px] font-medium uppercase tracking-wider mb-0.5" style="color: var(--text-muted);">WiFi</span>
-          <svg class="w-4 h-4 hidden sm:block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent);"><path d="M5 12h14M13 5l7 7-7 7" /></svg>
-          <svg class="w-4 h-4 sm:hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent);"><path d="M12 5v14M5 13l7 7 7-7" /></svg>
+        <div
+          class="flex flex-col items-center justify-center px-2 sm:px-3 py-1 sm:py-0"
+        >
+          <span
+            class="text-[9px] font-medium uppercase tracking-wider mb-0.5"
+            style="color: var(--text-muted);">WiFi</span
+          >
+          <svg
+            class="w-4 h-4 hidden sm:block"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            style="color: var(--accent);"
+            ><path d="M5 12h14M13 5l7 7-7 7"></path></svg
+          >
+          <svg
+            class="w-4 h-4 sm:hidden"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            style="color: var(--accent);"
+            ><path d="M12 5v14M5 13l7 7 7-7"></path></svg
+          >
         </div>
 
-        <div class="glass p-3 sm:p-4 text-center flex-1 w-full sm:w-auto min-w-0 flex flex-col items-center justify-center">
-          <svg class="w-5 h-5 mb-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent);">
-            <rect x="4" y="6" width="16" height="12" rx="1" /><path d="M2 18h20" />
+        <div
+          class="glass p-3 sm:p-4 text-center flex-1 w-full sm:w-auto min-w-0 flex flex-col items-center justify-center"
+        >
+          <svg
+            class="w-5 h-5 mb-1"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            style="color: var(--accent);"
+          >
+            <rect x="4" y="6" width="16" height="12" rx="1"></rect><path
+              d="M2 18h20"></path>
           </svg>
-          <h4 class="text-xs font-semibold" style="color: var(--text-primary);">Stick + TV</h4>
+          <h4 class="text-xs font-semibold" style="color: var(--text-primary);">
+            Stick + TV
+          </h4>
           <p class="text-[10px]" style="color: var(--text-muted);">HDMI</p>
         </div>
       </div>
 
-      <p class="text-xs mt-3" style="color: var(--text-muted);">Cost: ~$30 one-time for the stick. Runs when your computer is on.</p>
+      <p class="text-xs mt-3" style="color: var(--text-muted);">
+        Cost: ~$30 one-time for the stick. Runs when your computer is on.
+      </p>
     </section>
 
     <!-- Setup C: All-in-one computer -->
-    <section class="py-6 sm:py-8" style="border-top: 1px solid var(--glass-border);">
-      <h2 class="text-lg sm:text-xl font-bold mb-1" style="color: var(--accent);">All-in-one computer</h2>
-      <p class="text-sm mb-5" style="color: var(--text-muted);">Best for a dedicated mini PC that stays connected to the TV.</p>
+    <section class="py-3 sm:py-5">
+      <h2
+        class="text-lg sm:text-xl font-bold mb-1"
+        style="color: var(--accent);"
+      >
+        All-in-one computer
+      </h2>
+      <p class="text-sm mb-5" style="color: var(--text-muted);">
+        Best for a dedicated mini PC that stays connected to the TV.
+      </p>
 
-      <div class="flex flex-col sm:flex-row items-center sm:items-stretch gap-2 sm:gap-0">
-        <div class="glass p-3 sm:p-4 text-center flex-1 w-full sm:w-auto min-w-0 flex flex-col items-center justify-center">
-          <svg class="w-5 h-5 mb-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent);">
-            <path d="M6.5 19h11a4.5 4.5 0 0 0 1.09-8.87 6 6 0 0 0-11.18 0A4.5 4.5 0 0 0 6.5 19z" />
+      <div
+        class="flex flex-col sm:flex-row items-center sm:items-stretch gap-2 sm:gap-0"
+      >
+        <div
+          class="glass p-3 sm:p-4 text-center flex-1 w-full sm:w-auto min-w-0 flex flex-col items-center justify-center"
+        >
+          <svg
+            class="w-5 h-5 mb-1"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            style="color: var(--accent);"
+          >
+            <path
+              d="M6.5 19h11a4.5 4.5 0 0 0 1.09-8.87 6 6 0 0 0-11.18 0A4.5 4.5 0 0 0 6.5 19z"
+            ></path>
           </svg>
-          <h4 class="text-xs font-semibold" style="color: var(--text-primary);">Your photos</h4>
+          <h4 class="text-xs font-semibold" style="color: var(--text-primary);">
+            Your photos
+          </h4>
         </div>
 
-        <div class="flex items-center justify-center px-2 sm:px-3 py-1 sm:py-0" style="color: var(--accent);">
-          <svg class="w-4 h-4 hidden sm:block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7" /></svg>
-          <svg class="w-4 h-4 sm:hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 13l7 7 7-7" /></svg>
+        <div
+          class="flex items-center justify-center px-2 sm:px-3 py-1 sm:py-0"
+          style="color: var(--accent);"
+        >
+          <svg
+            class="w-4 h-4 hidden sm:block"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"></path></svg
+          >
+          <svg
+            class="w-4 h-4 sm:hidden"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"><path d="M12 5v14M5 13l7 7 7-7"></path></svg
+          >
         </div>
 
-        <div class="glass p-3 sm:p-4 text-center flex-1 w-full sm:w-auto min-w-0 flex flex-col items-center justify-center" style="border-color: var(--accent); border-width: 1px;">
-          <svg class="w-5 h-5 mb-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent);">
-            <rect x="2" y="3" width="20" height="14" rx="2" /><path d="M8 21h8M12 17v4" />
+        <div
+          class="glass p-3 sm:p-4 text-center flex-1 w-full sm:w-auto min-w-0 flex flex-col items-center justify-center"
+          style="border-color: var(--accent); border-width: 1px;"
+        >
+          <svg
+            class="w-5 h-5 mb-1"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            style="color: var(--accent);"
+          >
+            <rect x="2" y="3" width="20" height="14" rx="2"></rect><path
+              d="M8 21h8M12 17v4"></path>
           </svg>
-          <h4 class="text-xs font-semibold" style="color: var(--text-primary);">Computer</h4>
-          <p class="text-[10px]" style="color: var(--text-muted);">server + display</p>
+          <h4 class="text-xs font-semibold" style="color: var(--text-primary);">
+            Computer
+          </h4>
+          <p class="text-[10px]" style="color: var(--text-muted);">
+            server + display
+          </p>
         </div>
 
-        <div class="flex flex-col items-center justify-center px-2 sm:px-3 py-1 sm:py-0">
-          <span class="text-[9px] font-medium uppercase tracking-wider mb-0.5" style="color: var(--text-muted);">HDMI</span>
-          <svg class="w-4 h-4 hidden sm:block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent);"><path d="M5 12h14M13 5l7 7-7 7" /></svg>
-          <svg class="w-4 h-4 sm:hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent);"><path d="M12 5v14M5 13l7 7 7-7" /></svg>
+        <div
+          class="flex flex-col items-center justify-center px-2 sm:px-3 py-1 sm:py-0"
+        >
+          <span
+            class="text-[9px] font-medium uppercase tracking-wider mb-0.5"
+            style="color: var(--text-muted);">HDMI</span
+          >
+          <svg
+            class="w-4 h-4 hidden sm:block"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            style="color: var(--accent);"
+            ><path d="M5 12h14M13 5l7 7-7 7"></path></svg
+          >
+          <svg
+            class="w-4 h-4 sm:hidden"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            style="color: var(--accent);"
+            ><path d="M12 5v14M5 13l7 7 7-7"></path></svg
+          >
         </div>
 
-        <div class="glass p-3 sm:p-4 text-center flex-1 w-full sm:w-auto min-w-0 flex flex-col items-center justify-center">
-          <svg class="w-5 h-5 mb-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent);">
-            <rect x="2" y="3" width="20" height="14" rx="2" /><path d="M8 21h8M12 17v4" />
+        <div
+          class="glass p-3 sm:p-4 text-center flex-1 w-full sm:w-auto min-w-0 flex flex-col items-center justify-center"
+        >
+          <svg
+            class="w-5 h-5 mb-1"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            style="color: var(--accent);"
+          >
+            <rect x="2" y="3" width="20" height="14" rx="2"></rect><path
+              d="M8 21h8M12 17v4"></path>
           </svg>
-          <h4 class="text-xs font-semibold" style="color: var(--text-primary);">Your TV</h4>
+          <h4 class="text-xs font-semibold" style="color: var(--text-primary);">
+            Your TV
+          </h4>
         </div>
       </div>
 
-      <p class="text-xs mt-3" style="color: var(--text-muted);">Cost: free (if you have a spare computer) or ~$150 for a mini PC.</p>
+      <p class="text-xs mt-3" style="color: var(--text-muted);">
+        Cost: free (if you have a spare computer) or ~$150 for a mini PC.
+      </p>
     </section>
 
     <!-- Setup D: Cloud server -->
-    <section class="py-6 sm:py-8" style="border-top: 1px solid var(--glass-border);">
-      <h2 class="text-lg sm:text-xl font-bold mb-1" style="color: var(--accent);">Cloud server</h2>
-      <p class="text-sm mb-5" style="color: var(--text-muted);">Best for always-on operation and access from anywhere.</p>
+    <section class="py-3 sm:py-5">
+      <h2
+        class="text-lg sm:text-xl font-bold mb-1"
+        style="color: var(--accent);"
+      >
+        Cloud server
+      </h2>
+      <p class="text-sm mb-5" style="color: var(--text-muted);">
+        Best for always-on operation and access from anywhere.
+      </p>
 
-      <div class="flex flex-col sm:flex-row items-center sm:items-stretch gap-2 sm:gap-0">
-        <div class="glass p-3 sm:p-4 text-center flex-1 w-full sm:w-auto min-w-0 flex flex-col items-center justify-center">
-          <svg class="w-5 h-5 mb-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent);">
-            <path d="M6.5 19h11a4.5 4.5 0 0 0 1.09-8.87 6 6 0 0 0-11.18 0A4.5 4.5 0 0 0 6.5 19z" />
+      <div
+        class="flex flex-col sm:flex-row items-center sm:items-stretch gap-2 sm:gap-0"
+      >
+        <div
+          class="glass p-3 sm:p-4 text-center flex-1 w-full sm:w-auto min-w-0 flex flex-col items-center justify-center"
+        >
+          <svg
+            class="w-5 h-5 mb-1"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            style="color: var(--accent);"
+          >
+            <path
+              d="M6.5 19h11a4.5 4.5 0 0 0 1.09-8.87 6 6 0 0 0-11.18 0A4.5 4.5 0 0 0 6.5 19z"
+            ></path>
           </svg>
-          <h4 class="text-xs font-semibold" style="color: var(--text-primary);">Your photos</h4>
+          <h4 class="text-xs font-semibold" style="color: var(--text-primary);">
+            Your photos
+          </h4>
         </div>
 
-        <div class="flex items-center justify-center px-2 sm:px-3 py-1 sm:py-0" style="color: var(--accent);">
-          <svg class="w-4 h-4 hidden sm:block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7" /></svg>
-          <svg class="w-4 h-4 sm:hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 13l7 7 7-7" /></svg>
+        <div
+          class="flex items-center justify-center px-2 sm:px-3 py-1 sm:py-0"
+          style="color: var(--accent);"
+        >
+          <svg
+            class="w-4 h-4 hidden sm:block"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"></path></svg
+          >
+          <svg
+            class="w-4 h-4 sm:hidden"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"><path d="M12 5v14M5 13l7 7 7-7"></path></svg
+          >
         </div>
 
-        <div class="glass p-3 sm:p-4 text-center flex-1 w-full sm:w-auto min-w-0 flex flex-col items-center justify-center" style="border-color: var(--accent); border-width: 1px;">
-          <svg class="w-5 h-5 mb-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent);">
-            <path d="M6.5 19h11a4.5 4.5 0 0 0 1.09-8.87 6 6 0 0 0-11.18 0A4.5 4.5 0 0 0 6.5 19z" />
+        <div
+          class="glass p-3 sm:p-4 text-center flex-1 w-full sm:w-auto min-w-0 flex flex-col items-center justify-center"
+          style="border-color: var(--accent); border-width: 1px;"
+        >
+          <svg
+            class="w-5 h-5 mb-1"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            style="color: var(--accent);"
+          >
+            <path
+              d="M6.5 19h11a4.5 4.5 0 0 0 1.09-8.87 6 6 0 0 0-11.18 0A4.5 4.5 0 0 0 6.5 19z"
+            ></path>
           </svg>
-          <h4 class="text-xs font-semibold" style="color: var(--text-primary);">Hetzner cloud</h4>
+          <h4 class="text-xs font-semibold" style="color: var(--text-primary);">
+            Hetzner cloud
+          </h4>
           <p class="text-[10px]" style="color: var(--text-muted);">~$7/mo</p>
         </div>
 
-        <div class="flex flex-col items-center justify-center px-2 sm:px-3 py-1 sm:py-0">
-          <span class="text-[9px] font-medium uppercase tracking-wider mb-0.5" style="color: var(--text-muted);">Web</span>
-          <svg class="w-4 h-4 hidden sm:block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent);"><path d="M5 12h14M13 5l7 7-7 7" /></svg>
-          <svg class="w-4 h-4 sm:hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent);"><path d="M12 5v14M5 13l7 7 7-7" /></svg>
+        <div
+          class="flex flex-col items-center justify-center px-2 sm:px-3 py-1 sm:py-0"
+        >
+          <span
+            class="text-[9px] font-medium uppercase tracking-wider mb-0.5"
+            style="color: var(--text-muted);">Web</span
+          >
+          <svg
+            class="w-4 h-4 hidden sm:block"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            style="color: var(--accent);"
+            ><path d="M5 12h14M13 5l7 7-7 7"></path></svg
+          >
+          <svg
+            class="w-4 h-4 sm:hidden"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            style="color: var(--accent);"
+            ><path d="M12 5v14M5 13l7 7 7-7"></path></svg
+          >
         </div>
 
-        <div class="glass p-3 sm:p-4 text-center flex-1 w-full sm:w-auto min-w-0 flex flex-col items-center justify-center">
-          <svg class="w-5 h-5 mb-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color: var(--accent);">
-            <rect x="2" y="3" width="20" height="14" rx="2" /><path d="M8 21h8M12 17v4" />
+        <div
+          class="glass p-3 sm:p-4 text-center flex-1 w-full sm:w-auto min-w-0 flex flex-col items-center justify-center"
+        >
+          <svg
+            class="w-5 h-5 mb-1"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            style="color: var(--accent);"
+          >
+            <rect x="2" y="3" width="20" height="14" rx="2"></rect><path
+              d="M8 21h8M12 17v4"></path>
           </svg>
-          <h4 class="text-xs font-semibold" style="color: var(--text-primary);">Any screen</h4>
-          <p class="text-[10px]" style="color: var(--text-muted);">TV, phone, tablet</p>
+          <h4 class="text-xs font-semibold" style="color: var(--text-primary);">
+            Any screen
+          </h4>
+          <p class="text-[10px]" style="color: var(--text-muted);">
+            TV, phone, tablet
+          </p>
         </div>
       </div>
 
-      <p class="text-xs mt-3" style="color: var(--text-muted);">Cost: ~$7/month (at least one month free with our referral link).</p>
+      <p class="text-xs mt-3" style="color: var(--text-muted);">
+        Cost: ~$7/month (at least one month free with our referral link).
+      </p>
     </section>
 
     <!-- Which setup is right for me -->
-    <section class="py-6 sm:py-8" style="border-top: 1px solid var(--glass-border);">
-      <h2 class="text-xl sm:text-2xl font-bold mb-2" style="color: var(--text-primary);">Which setup is right for me?</h2>
+    <section class="py-3 sm:py-5">
+      <h2
+        class="text-xl sm:text-2xl font-bold mb-2"
+        style="color: var(--text-primary);"
+      >
+        Which setup is right for me?
+      </h2>
       <p class="text-base mb-6" style="color: var(--text-secondary);">
-        There is no wrong choice &mdash; you can change your setup anytime without losing your photos, face recognition data, or slideshows.
+        There is no wrong choice &mdash; you can change your setup anytime
+        without losing your photos, face recognition data, or slideshows.
       </p>
 
       <!-- Comparison table -->
@@ -200,105 +1052,243 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         <table class="w-full text-sm" style="color: var(--text-secondary);">
           <thead>
             <tr style="border-bottom: 1px solid var(--glass-border);">
-              <th class="text-left py-3 pr-4" style="color: var(--text-primary);"></th>
-              <th class="text-left py-3 px-4" style="color: var(--text-primary);">Your computer</th>
-              <th class="text-left py-3 pl-4" style="color: var(--text-primary);">Cloud (Hetzner)</th>
+              <th
+                class="text-left py-3 pr-4"
+                style="color: var(--text-primary);"></th>
+              <th
+                class="text-left py-3 px-4"
+                style="color: var(--text-primary);">Your computer</th
+              >
+              <th
+                class="text-left py-3 pl-4"
+                style="color: var(--text-primary);">Cloud (Hetzner)</th
+              >
             </tr>
           </thead>
           <tbody>
             <tr style="border-bottom: 1px solid var(--glass-border);">
-              <td class="py-3 pr-4 font-medium" style="color: var(--text-primary);">Cost</td>
+              <td
+                class="py-3 pr-4 font-medium"
+                style="color: var(--text-primary);">Cost</td
+              >
               <td class="py-3 px-4">Free forever</td>
               <td class="py-3 pl-4">~$7/month (at least 1 month free)</td>
             </tr>
             <tr style="border-bottom: 1px solid var(--glass-border);">
-              <td class="py-3 pr-4 font-medium" style="color: var(--text-primary);">Always running?</td>
+              <td
+                class="py-3 pr-4 font-medium"
+                style="color: var(--text-primary);">Always running?</td
+              >
               <td class="py-3 px-4">Only when your computer is on</td>
               <td class="py-3 pl-4">Yes, 24/7</td>
             </tr>
             <tr style="border-bottom: 1px solid var(--glass-border);">
-              <td class="py-3 pr-4 font-medium" style="color: var(--text-primary);">Access outside your home?</td>
+              <td
+                class="py-3 pr-4 font-medium"
+                style="color: var(--text-primary);"
+                >Access outside your home?</td
+              >
               <td class="py-3 px-4">No (home network only)</td>
               <td class="py-3 pl-4">Yes, from anywhere</td>
             </tr>
             <tr style="border-bottom: 1px solid var(--glass-border);">
-              <td class="py-3 pr-4 font-medium" style="color: var(--text-primary);">Fast AI analysis</td>
+              <td
+                class="py-3 pr-4 font-medium"
+                style="color: var(--text-primary);">Fast AI analysis</td
+              >
               <td class="py-3 px-4">Standard speed</td>
-              <td class="py-3 pl-4">Optional turbo mode ($10&ndash;$20 one-time)</td>
+              <td class="py-3 pl-4"
+                >Optional turbo mode ($10&ndash;$20 one-time)</td
+              >
             </tr>
             <tr>
-              <td class="py-3 pr-4 font-medium" style="color: var(--text-primary);">Best for</td>
+              <td
+                class="py-3 pr-4 font-medium"
+                style="color: var(--text-primary);">Best for</td
+              >
               <td class="py-3 px-4">Trying it out, single household</td>
-              <td class="py-3 pl-4">Daily automated slideshows, families across multiple homes</td>
+              <td class="py-3 pl-4"
+                >Daily automated slideshows, families across multiple homes</td
+              >
             </tr>
           </tbody>
         </table>
       </div>
 
       <!-- Recommendation -->
-      <div class="glass p-5 sm:p-6" style="border-color: var(--accent); border-width: 1px;">
-        <p class="font-semibold mb-2" style="color: var(--accent);">Our suggestion</p>
-        <p class="text-sm leading-relaxed" style="color: var(--text-secondary);">
-          Start with a <strong style="color: var(--text-primary);">Hetzner cloud server</strong>. With our referral link, you get
-          at least one month of free hosting. You get 24/7 operation, web access from your phone,
-          and the option to run fast AI analysis on your whole photo library. If you decide to switch to your own
-          computer later, you can migrate everything with a single command and run TwineLine for free going forward.
+      <div
+        class="glass p-5 sm:p-6"
+        style="border-color: var(--accent); border-width: 1px;"
+      >
+        <p class="font-semibold mb-2" style="color: var(--accent);">
+          Our suggestion
+        </p>
+        <p
+          class="text-sm leading-relaxed"
+          style="color: var(--text-secondary);"
+        >
+          Start with a <strong style="color: var(--text-primary);"
+            >Hetzner cloud server</strong
+          >. With our referral link, you get at least one month of free hosting.
+          You get 24/7 operation, web access from your phone, and the option to
+          run fast AI analysis on your whole photo library. If you decide to
+          switch to your own computer later, you can migrate everything with a
+          single command and run TwineLine for free going forward.
         </p>
       </div>
     </section>
 
     <!-- Quick decision guide -->
-    <section class="py-6 sm:py-8" style="border-top: 1px solid var(--glass-border);">
-      <h2 class="text-xl sm:text-2xl font-bold mb-5" style="color: var(--text-primary);">Quick guide</h2>
+    <section class="py-3 sm:py-5">
+      <h2
+        class="text-xl sm:text-2xl font-bold mb-5"
+        style="color: var(--text-primary);"
+      >
+        Quick guide
+      </h2>
       <div class="space-y-4">
         <div class="flex gap-3 items-start">
-          <div class="w-5 h-5 rounded-full flex-shrink-0 flex items-center justify-center mt-0.5" style="background: var(--accent);">
-            <svg class="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7" /></svg>
+          <div
+            class="w-5 h-5 rounded-full flex-shrink-0 flex items-center justify-center mt-0.5"
+            style="background: var(--accent);"
+          >
+            <svg
+              class="w-3 h-3"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#fff"
+              stroke-width="3"
+              stroke-linecap="round"
+              stroke-linejoin="round"><path d="M5 13l4 4L19 7"></path></svg
+            >
           </div>
           <p class="text-sm" style="color: var(--text-secondary);">
-            <strong style="color: var(--text-primary);">If your TV has Google TV or Fire TV built in</strong> &mdash; you only need to set up the server. No extra hardware.
+            <strong style="color: var(--text-primary);"
+              >If your TV has Google TV or Fire TV built in</strong
+            > &mdash; you only need to set up the server. No extra hardware.
           </p>
         </div>
         <div class="flex gap-3 items-start">
-          <div class="w-5 h-5 rounded-full flex-shrink-0 flex items-center justify-center mt-0.5" style="background: var(--accent);">
-            <svg class="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7" /></svg>
+          <div
+            class="w-5 h-5 rounded-full flex-shrink-0 flex items-center justify-center mt-0.5"
+            style="background: var(--accent);"
+          >
+            <svg
+              class="w-3 h-3"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#fff"
+              stroke-width="3"
+              stroke-linecap="round"
+              stroke-linejoin="round"><path d="M5 13l4 4L19 7"></path></svg
+            >
           </div>
           <p class="text-sm" style="color: var(--text-secondary);">
-            <strong style="color: var(--text-primary);">If your TV is an older model</strong> &mdash; add a streaming stick (~$30) that plugs into your TV.
+            <strong style="color: var(--text-primary);"
+              >If your TV is an older model</strong
+            > &mdash; add a streaming stick (~$30) that plugs into your TV.
           </p>
         </div>
         <div class="flex gap-3 items-start">
-          <div class="w-5 h-5 rounded-full flex-shrink-0 flex items-center justify-center mt-0.5" style="background: var(--accent);">
-            <svg class="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7" /></svg>
+          <div
+            class="w-5 h-5 rounded-full flex-shrink-0 flex items-center justify-center mt-0.5"
+            style="background: var(--accent);"
+          >
+            <svg
+              class="w-3 h-3"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#fff"
+              stroke-width="3"
+              stroke-linecap="round"
+              stroke-linejoin="round"><path d="M5 13l4 4L19 7"></path></svg
+            >
           </div>
           <p class="text-sm" style="color: var(--text-secondary);">
-            <strong style="color: var(--text-primary);">If you want to dedicate a computer to TwineLine</strong> &mdash; connect it directly to your TV with an HDMI cable. It handles everything.
+            <strong style="color: var(--text-primary);"
+              >If you want to dedicate a computer to TwineLine</strong
+            > &mdash; connect it directly to your TV with an HDMI cable. It handles
+            everything.
           </p>
         </div>
         <div class="flex gap-3 items-start">
-          <div class="w-5 h-5 rounded-full flex-shrink-0 flex items-center justify-center mt-0.5" style="background: var(--accent);">
-            <svg class="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7" /></svg>
+          <div
+            class="w-5 h-5 rounded-full flex-shrink-0 flex items-center justify-center mt-0.5"
+            style="background: var(--accent);"
+          >
+            <svg
+              class="w-3 h-3"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#fff"
+              stroke-width="3"
+              stroke-linecap="round"
+              stroke-linejoin="round"><path d="M5 13l4 4L19 7"></path></svg
+            >
           </div>
           <p class="text-sm" style="color: var(--text-secondary);">
-            <strong style="color: var(--text-primary);">Want it always on without managing a computer?</strong> &mdash; use a cloud server. Free for the first couple of months with our referral link.
+            <strong style="color: var(--text-primary);"
+              >Want it always on without managing a computer?</strong
+            > &mdash; use a cloud server. Free for the first couple of months with
+            our referral link.
           </p>
         </div>
       </div>
     </section>
 
     <!-- Technical details (expandable) -->
-    <section class="py-6 sm:py-8" style="border-top: 1px solid var(--glass-border);">
+    <section class="py-3 sm:py-5">
       <details class="glass p-5 sm:p-6">
-        <summary class="font-semibold cursor-pointer" style="color: var(--text-primary);">How it works technically</summary>
-        <div class="mt-4 space-y-3 text-sm" style="color: var(--text-secondary);">
-          <p><strong style="color: var(--text-primary);">Server:</strong> Python FastAPI application serving a REST API on port 8080.</p>
-          <p><strong style="color: var(--text-primary);">Player:</strong> Vue.js 3 single-page app optimized for streaming devices, rendered via the TwineLine app or any Chromium-based browser.</p>
-          <p><strong style="color: var(--text-primary);">Communication:</strong> WebSocket connection with a 1-second heartbeat. The server is the single source of truth for slideshow state &mdash; slide index, play/pause, timing. Clients are passive viewers.</p>
-          <p><strong style="color: var(--text-primary);">Database:</strong> SQLite (single-file, no setup required).</p>
-          <p><strong style="color: var(--text-primary);">Photo sources:</strong> Microsoft OneDrive (via Microsoft Graph API), local filesystem, Pixabay stock photos.</p>
-          <p><strong style="color: var(--text-primary);">Image processing:</strong> Pillow for optimization, OpenCV for face detection, FFmpeg for video transcoding.</p>
-          <p><strong style="color: var(--text-primary);">Face recognition:</strong> FaceNet model running locally on CPU (~2 GB model download, no cloud dependency, no GPU required).</p>
-          <p><strong style="color: var(--text-primary);">Multi-device sync:</strong> A lightweight signaling layer keeps all screens in sync. Only control messages travel through this layer &mdash; your photos never leave your network.</p>
+        <summary
+          class="font-semibold cursor-pointer"
+          style="color: var(--text-primary);">How it works technically</summary
+        >
+        <div
+          class="mt-4 space-y-3 text-sm"
+          style="color: var(--text-secondary);"
+        >
+          <p>
+            <strong style="color: var(--text-primary);">Server:</strong> Python FastAPI
+            application serving a REST API on port 8080.
+          </p>
+          <p>
+            <strong style="color: var(--text-primary);">Player:</strong> Vue.js 3
+            single-page app optimized for streaming devices, rendered via the TwineLine
+            app or any Chromium-based browser.
+          </p>
+          <p>
+            <strong style="color: var(--text-primary);">Communication:</strong> WebSocket
+            connection with a 1-second heartbeat. The server is the single source
+            of truth for slideshow state &mdash; slide index, play/pause, timing.
+            Clients are passive viewers.
+          </p>
+          <p>
+            <strong style="color: var(--text-primary);">Database:</strong> SQLite
+            (single-file, no setup required).
+          </p>
+          <p>
+            <strong style="color: var(--text-primary);">Photo sources:</strong> Microsoft
+            OneDrive (via Microsoft Graph API), local filesystem, Pixabay stock photos.
+          </p>
+          <p>
+            <strong style="color: var(--text-primary);"
+              >Image processing:</strong
+            > Pillow for optimization, OpenCV for face detection, FFmpeg for video
+            transcoding.
+          </p>
+          <p>
+            <strong style="color: var(--text-primary);"
+              >Face recognition:</strong
+            > FaceNet model running locally on CPU (~2 GB model download, no cloud
+            dependency, no GPU required).
+          </p>
+          <p>
+            <strong style="color: var(--text-primary);"
+              >Multi-device sync:</strong
+            > A lightweight signaling layer keeps all screens in sync. Only control
+            messages travel through this layer &mdash; your photos never leave your
+            network.
+          </p>
         </div>
       </details>
     </section>
@@ -309,6 +1299,35 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         Choose your setup and get started
       </a>
     </div>
-
   </div>
+
+  <script is:inline>
+    window.addEventListener("DOMContentLoaded", function () {
+      var videos = document.querySelectorAll("video");
+      var hero = document.getElementById("hiw-hero-video");
+      var heroOffset = 1;
+
+      // Force all videos to play immediately
+      videos.forEach(function (vid) {
+        vid.play().catch(function () {});
+      });
+
+      // Once hero can play, set its offset then sync all others to time 0
+      if (hero) {
+        hero.addEventListener("canplay", function h() {
+          hero.currentTime = heroOffset;
+          hero.removeEventListener("canplay", h);
+        });
+      }
+
+      // If a video gets paused (e.g. mobile offscreen optimization), restart it on visibility
+      document.addEventListener("visibilitychange", function () {
+        if (!document.hidden) {
+          videos.forEach(function (vid) {
+            if (vid.paused) vid.play().catch(function () {});
+          });
+        }
+      });
+    });
+  </script>
 </BaseLayout>

@@ -102,9 +102,7 @@ describe("lookupDns", () => {
 
     await lookupDns("test-name", ZONE_ID, API_TOKEN);
     const calledUrl = mockFetch.mock.calls[0][0] as string;
-    expect(calledUrl).toContain(
-      encodeURIComponent("test-name.twineline.ai"),
-    );
+    expect(calledUrl).toContain(encodeURIComponent("test-name.twineline.ai"));
   });
 
   it("sends Authorization header with Bearer token", async () => {

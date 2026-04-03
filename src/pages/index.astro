@@ -1,31 +1,50 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
+import BaseLayout from "../layouts/BaseLayout.astro";
 
-const heroVideo = 'https://media.twineline.ai/hero-demo.mp4';
+const heroVideo = "https://media.twineline.ai/hero-demo.mp4";
 const featureVideos = {
-  allDevices: 'https://media.twineline.ai/multi-device.mp4',
-  transitions: 'https://media.twineline.ai/feature-transitions.mp4',
-  videoSupport: '',
-  multiDevice: '',
+  allDevices: "https://media.twineline.ai/multi-device.mp4",
+  transitions: "https://media.twineline.ai/feature-transitions.mp4",
+  videoSupport: "",
+  multiDevice: "",
 };
 ---
 
-<BaseLayout title="TwineLine.ai - Relive Your Memories Through Intelligent Slideshows">
+<BaseLayout
+  title="TwineLine.ai - Relive Your Memories Through Intelligent Slideshows"
+>
   <!-- Hero: Centered text block -->
-  <section class="mx-auto max-w-5xl px-4 sm:px-6 pt-6 sm:pt-14 pb-4 sm:pb-8 text-center">
-    <p class="text-xs sm:text-sm font-medium tracking-widest uppercase mb-2 sm:mb-4" style="color: var(--accent);">
+  <section
+    class="mx-auto max-w-5xl px-4 sm:px-6 pt-6 sm:pt-14 pb-4 sm:pb-8 text-center"
+  >
+    <p
+      class="text-xs sm:text-sm font-medium tracking-widest uppercase mb-2 sm:mb-4"
+      style="color: var(--accent);"
+    >
       Your memories, beautifully presented
     </p>
-    <h1 class="text-2xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-tight" style="color: var(--text-primary);">
+    <h1
+      class="text-2xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-tight"
+      style="color: var(--text-primary);"
+    >
       Intelligent slideshows<br class="hidden sm:block" />
       from your <span style="color: var(--accent);">photos &amp; videos</span>
     </h1>
     <!-- Mobile-condensed description -->
-    <div class="sm:hidden mt-2 max-w-2xl mx-auto text-sm leading-relaxed" style="color: var(--text-secondary);">
-      <p>Every day, TwineLine creates a unique slideshow, organized by people, places, and moments that matter. Powered by AI, designed with heart.</p>
+    <div
+      class="sm:hidden mt-2 max-w-2xl mx-auto text-sm leading-relaxed"
+      style="color: var(--text-secondary);"
+    >
+      <p>
+        Every day, TwineLine creates a unique slideshow, organized by people,
+        places, and moments that matter. Powered by AI, designed with heart.
+      </p>
     </div>
     <!-- Desktop description -->
-    <div class="hidden sm:block mt-4 max-w-2xl mx-auto text-base leading-relaxed" style="color: var(--text-secondary);">
+    <div
+      class="hidden sm:block mt-4 max-w-2xl mx-auto text-base leading-relaxed"
+      style="color: var(--text-secondary);"
+    >
       <p>Every day, TwineLine automatically creates a unique slideshow.</p>
       <p>Your memories organized by people, places, and moments that matter.</p>
       <p>Powered by AI, designed with heart.</p>
@@ -34,48 +53,76 @@ const featureVideos = {
 
   <!-- Logo → Arrow → Slideshow -->
   <section class="mx-auto max-w-5xl px-4 sm:px-6 pb-10 sm:pb-14">
-    <div class="flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-6 lg:gap-8">
+    <div
+      class="flex flex-col sm:flex-row items-center justify-center gap-1 sm:gap-6 lg:gap-8"
+    >
       <!-- Logo -->
       <div class="shrink-0">
         <img
           src="/logo.svg"
           alt="TwineLine"
           class="h-24 sm:h-34 lg:h-44 w-auto"
-
         />
       </div>
       <!-- Arrow -->
       <div class="shrink-0" style="color: var(--accent);">
         <!-- Right arrow on sm+, down arrow on mobile -->
-        <svg class="hidden sm:block w-10 h-10 sm:w-12 sm:h-12" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M13.47 4.22a.75.75 0 0 1 1.06 0l7.5 7.5a.75.75 0 0 1 0 1.06l-7.5 7.5a.75.75 0 1 1-1.06-1.06l6.22-6.22H3a.75.75 0 0 1 0-1.5h16.69l-6.22-6.22a.75.75 0 0 1 0-1.06Z" />
+        <svg
+          class="hidden sm:block w-10 h-10 sm:w-12 sm:h-12"
+          fill="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M13.47 4.22a.75.75 0 0 1 1.06 0l7.5 7.5a.75.75 0 0 1 0 1.06l-7.5 7.5a.75.75 0 1 1-1.06-1.06l6.22-6.22H3a.75.75 0 0 1 0-1.5h16.69l-6.22-6.22a.75.75 0 0 1 0-1.06Z"
+          ></path>
         </svg>
-        <svg class="sm:hidden w-10 h-10" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M11.47 19.28a.75.75 0 0 0 1.06 0l7.5-7.5a.75.75 0 0 0-1.06-1.06l-6.22 6.22V3.75a.75.75 0 0 0-1.5 0v13.19l-6.22-6.22a.75.75 0 0 0-1.06 1.06l7.5 7.5Z" />
+        <svg
+          class="sm:hidden w-10 h-10"
+          fill="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M11.47 19.28a.75.75 0 0 0 1.06 0l7.5-7.5a.75.75 0 0 0-1.06-1.06l-6.22 6.22V3.75a.75.75 0 0 0-1.5 0v13.19l-6.22-6.22a.75.75 0 0 0-1.06 1.06l7.5 7.5Z"
+          ></path>
         </svg>
       </div>
       <!-- Slideshow -->
       <div class="w-full sm:w-auto sm:flex-1 max-w-sm sm:max-w-md">
         <div class="hero-video-wrapper">
-          {heroVideo ? (
-            <video
-              autoplay
-              muted
-              loop
-              playsinline
-              preload="metadata"
-              poster=""
-            >
-              <source src={heroVideo} type="video/mp4" />
-            </video>
-          ) : (
-            <div class="hero-video-placeholder">
-              <svg class="w-12 h-12 sm:w-16 sm:h-16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1" style="color: var(--text-muted);">
-                <path stroke-linecap="round" stroke-linejoin="round" d="m15.75 10.5 4.72-4.72a.75.75 0 0 1 1.28.53v11.38a.75.75 0 0 1-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 0 0 2.25-2.25v-9a2.25 2.25 0 0 0-2.25-2.25h-9A2.25 2.25 0 0 0 2.25 7.5v9a2.25 2.25 0 0 0 2.25 2.25Z" />
-              </svg>
-              <span class="text-sm" style="color: var(--text-muted);">Hero video coming soon</span>
-            </div>
-          )}
+          {
+            heroVideo ? (
+              <video
+                autoplay
+                muted
+                loop
+                playsinline
+                preload="metadata"
+                poster=""
+              >
+                <source src={heroVideo} type="video/mp4" />
+              </video>
+            ) : (
+              <div class="hero-video-placeholder">
+                <svg
+                  class="w-12 h-12 sm:w-16 sm:h-16"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="1"
+                  style="color: var(--text-muted);"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="m15.75 10.5 4.72-4.72a.75.75 0 0 1 1.28.53v11.38a.75.75 0 0 1-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 0 0 2.25-2.25v-9a2.25 2.25 0 0 0-2.25-2.25h-9A2.25 2.25 0 0 0 2.25 7.5v9a2.25 2.25 0 0 0 2.25 2.25Z"
+                  />
+                </svg>
+                <span class="text-sm" style="color: var(--text-muted);">
+                  Hero video coming soon
+                </span>
+              </div>
+            )
+          }
         </div>
       </div>
     </div>
@@ -85,35 +132,119 @@ const featureVideos = {
   <section class="mx-auto max-w-5xl px-4 sm:px-6 py-12 sm:py-16">
     <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
       <div class="glass p-6 sm:p-8">
-        <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-5 text-xl" style="background: var(--accent-glow); color: var(--accent);">
-          &#9733;
+        <div
+          class="flex items-center justify-center mb-5"
+          style="width: 60px; height: 60px;"
+        >
+          <svg
+            width="42"
+            height="42"
+            viewBox="118 107 85 85"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <defs>
+              <radialGradient
+                id="card-star-gradient"
+                cx="50%"
+                cy="50%"
+                r="50%"
+                gradientUnits="objectBoundingBox"
+              >
+                <stop offset="0%" stop-color="#e8f4ff"></stop>
+                <stop offset="40%" stop-color="#b3d9ff"></stop>
+                <stop offset="100%" stop-color="#4dabf7"></stop>
+              </radialGradient>
+              <filter
+                id="card-star-glow"
+                x="-50%"
+                y="-50%"
+                width="200%"
+                height="200%"
+              >
+                <feGaussianBlur
+                  in="SourceGraphic"
+                  stdDeviation="5"
+                  result="blur"></feGaussianBlur>
+                <feMerge>
+                  <feMergeNode in="blur"></feMergeNode>
+                  <feMergeNode in="blur"></feMergeNode>
+                  <feMergeNode in="SourceGraphic"></feMergeNode>
+                </feMerge>
+              </filter>
+            </defs>
+            <g
+              transform="translate(160.33,148.66) scale(0.75) translate(-162.33,-152.66)"
+            >
+              <path
+                transform="matrix(1,0,0,-1,114.7514,168.89389)"
+                d="M0 0C37.598 18.004 40.074 23.045 31.344 63.807 49.348 26.209 54.389 23.733 95.151 32.463 57.553 14.459 55.076 9.418 63.807-31.344 45.803 6.254 40.762 8.73 0 0"
+                fill="url(#card-star-gradient)"
+                filter="url(#card-star-glow)"></path>
+            </g>
+          </svg>
         </div>
-        <h3 class="text-lg font-semibold mb-2" style="color: var(--text-primary);">Smart.</h3>
-        <p style="color: var(--text-secondary); font-size: 0.925rem; line-height: 1.6;">
-          You set rules like &ldquo;travel on weekends&rdquo; or &ldquo;family on birthdays.&rdquo;
-          TwineLine creates a fresh slideshow every day &mdash; different every time, no effort required.
+        <h3
+          class="text-lg font-semibold mb-2"
+          style="color: var(--text-primary);"
+        >
+          Smart.
+        </h3>
+        <p
+          style="color: var(--text-secondary); font-size: 0.925rem; line-height: 1.6;"
+        >
+          You set rules like &ldquo;travel on weekends&rdquo; or &ldquo;family
+          on birthdays.&rdquo; TwineLine creates a fresh slideshow every day
+          &mdash; different every time, no effort required.
         </p>
       </div>
 
       <div class="glass p-6 sm:p-8">
-        <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-5 text-xl" style="background: var(--accent-glow); color: var(--accent);">
-          &#127912;
+        <div
+          class="flex items-center justify-center mb-5 text-4xl"
+          style="width: 60px; height: 60px; color: var(--accent);"
+        >
+          &#129419;
         </div>
-        <h3 class="text-lg font-semibold mb-2" style="color: var(--text-primary);">Beautiful.</h3>
-        <p style="color: var(--text-secondary); font-size: 0.925rem; line-height: 1.6;">
-          Smooth Ken Burns animation, cinematic transitions, and video clips bring your photos to life
-          across every screen &mdash; Fire TV, computers, tablets, and phones.
+        <h3
+          class="text-lg font-semibold mb-2"
+          style="color: var(--text-primary);"
+        >
+          Beautiful.
+        </h3>
+        <p
+          style="color: var(--text-secondary); font-size: 0.925rem; line-height: 1.6;"
+        >
+          Smooth Ken Burns animation, cinematic transitions, and video clips
+          bring your photos to life across every screen &mdash; Fire TV,
+          computers, tablets, and phones.
         </p>
       </div>
 
       <div class="glass p-6 sm:p-8 sm:col-span-2 lg:col-span-1">
-        <div class="w-10 h-10 rounded-lg flex items-center justify-center mb-5 text-xl" style="background: var(--accent-glow); color: var(--accent);">
-          &#128274;
+        <div
+          class="flex items-center justify-center mb-5 text-4xl"
+          style="width: 60px; height: 60px; color: var(--accent);"
+        >
+          &#127873;
         </div>
-        <h3 class="text-lg font-semibold mb-2" style="color: var(--text-primary);">Free.</h3>
-        <p style="color: var(--text-secondary); font-size: 0.925rem; line-height: 1.6;">
-          No subscription, no account, no data collection. Install on your own computer, or choose
-          affordable hosting for web access without managing your own server.
+        <h3
+          class="text-lg font-semibold mb-2"
+          style="color: var(--text-primary);"
+        >
+          Free.*
+        </h3>
+        <p
+          style="color: var(--text-secondary); font-size: 0.925rem; line-height: 1.6;"
+        >
+          No subscription, no account, no data collection. Install on your own
+          computer, or choose affordable hosting for web access without managing
+          your own server.
+        </p>
+        <p
+          class="mt-3"
+          style="color: var(--text-muted); font-size: 0.8rem; line-height: 1.5;"
+        >
+          *Optional fees for OneDrive storage and web hosting if you choose.
         </p>
       </div>
     </div>
@@ -122,118 +253,222 @@ const featureVideos = {
   <!-- Feature Showcase with Video Clips -->
   <section class="mx-auto max-w-5xl px-4 sm:px-6 py-12 sm:py-20">
     <div class="text-center mb-10 sm:mb-16">
-      <h2 class="text-2xl sm:text-3xl font-bold" style="color: var(--text-primary);">Not just another slideshow</h2>
+      <h2
+        class="text-2xl sm:text-3xl font-bold"
+        style="color: var(--text-primary);"
+      >
+        Not just another slideshow
+      </h2>
       <div class="mt-3 mx-auto max-w-2xl" style="color: var(--text-secondary);">
         <p>Not just random photos.</p>
-        <p>Not a slideshow you built one photo at a time.</p>
-        <p>Your preferences and insights from AI<br/>produce a daily slideshow that is beautiful and meaningful.</p>
+        <p>No need to select one photo at a time.</p>
+        <p>
+          Your wishes guide AI to produce<br />a beautiful new slideshow each
+          day.
+        </p>
       </div>
     </div>
 
     <!-- Feature 1: All Devices -->
-    <div class="grid gap-8 lg:gap-12 lg:grid-cols-2 items-center mb-16 sm:mb-24">
+    <div
+      class="grid gap-8 lg:gap-12 lg:grid-cols-2 items-center mb-16 sm:mb-24"
+    >
       <div class="feature-video-wrapper order-2 lg:order-1">
-        {featureVideos.allDevices ? (
-          <video autoplay muted loop playsinline preload="metadata">
-            <source src={featureVideos.allDevices} type="video/mp4" />
-          </video>
-        ) : (
-          <div class="w-full h-full flex items-center justify-center" style="color: var(--text-muted);">
-            <span class="text-sm">All devices clip</span>
-          </div>
-        )}
+        {
+          featureVideos.allDevices ? (
+            <video autoplay muted loop playsinline preload="metadata">
+              <source src={featureVideos.allDevices} type="video/mp4" />
+            </video>
+          ) : (
+            <div
+              class="w-full h-full flex items-center justify-center"
+              style="color: var(--text-muted);"
+            >
+              <span class="text-sm">All devices clip</span>
+            </div>
+          )
+        }
       </div>
       <div class="order-1 lg:order-2">
-        <div class="inline-block text-xs font-medium uppercase tracking-widest px-3 py-1 rounded-full mb-4" style="background: var(--accent-glow); color: var(--accent);">
+        <div
+          class="inline-block text-xs font-medium uppercase tracking-widest px-3 py-1 rounded-full mb-4"
+          style="background: var(--accent-glow); color: var(--accent);"
+        >
           All Devices
         </div>
-        <h3 class="text-xl sm:text-2xl font-bold mb-3" style="color: var(--text-primary);">
+        <h3
+          class="text-xl sm:text-2xl font-bold mb-3"
+          style="color: var(--text-primary);"
+        >
           One slideshow, many screens
         </h3>
         <p style="color: var(--text-secondary); line-height: 1.7;">
-          Your slideshow can play on every connected screen in the house. Control it from any
-          device &mdash; even a FireTV remote. With cloud hosting, family across the country can
-          watch together, as if they were in the same room.
+          Your slideshow can play on every connected screen in the house.
+          Control it from any device &mdash; even a FireTV remote. With cloud
+          hosting, family across the country can watch together, as if they were
+          in the same room.
         </p>
       </div>
     </div>
 
     <!-- Feature 2: Multiple Topics -->
-    <div class="grid gap-8 lg:gap-12 lg:grid-cols-2 items-center mb-16 sm:mb-24">
+    <div
+      class="grid gap-8 lg:gap-12 lg:grid-cols-2 items-center mb-16 sm:mb-24"
+    >
       <div class="order-1">
-        <div class="inline-block text-xs font-medium uppercase tracking-widest px-3 py-1 rounded-full mb-4" style="background: var(--accent-glow); color: var(--accent);">
+        <div
+          class="inline-block text-xs font-medium uppercase tracking-widest px-3 py-1 rounded-full mb-4"
+          style="background: var(--accent-glow); color: var(--accent);"
+        >
           Multiple Topics
         </div>
-        <h3 class="text-xl sm:text-2xl font-bold mb-3" style="color: var(--text-primary);">
+        <h3
+          class="text-xl sm:text-2xl font-bold mb-3"
+          style="color: var(--text-primary);"
+        >
           Mix and match your memories
         </h3>
         <p style="color: var(--text-secondary); line-height: 1.7;">
-          A single-topic slideshow is great, but life isn&rsquo;t one-dimensional.
-          Mix travel, family, holidays, and everyday moments into a single slideshow
-          that reflects the full richness of your memories.
+          A single-topic slideshow is great, but life isn&rsquo;t
+          one-dimensional. Mix travel, family, holidays, and everyday moments
+          into a single slideshow that reflects the full richness of your
+          memories.
         </p>
       </div>
       <div class="feature-video-wrapper order-2">
-        {featureVideos.transitions ? (
-          <video autoplay muted loop playsinline preload="metadata">
-            <source src={featureVideos.transitions} type="video/mp4" />
-          </video>
-        ) : (
-          <div class="w-full h-full flex items-center justify-center" style="color: var(--text-muted);">
-            <span class="text-sm">Multiple topics clip</span>
-          </div>
-        )}
+        {
+          featureVideos.transitions ? (
+            <video autoplay muted loop playsinline preload="metadata">
+              <source src={featureVideos.transitions} type="video/mp4" />
+            </video>
+          ) : (
+            <div
+              class="w-full h-full flex items-center justify-center"
+              style="color: var(--text-muted);"
+            >
+              <span class="text-sm">Multiple topics clip</span>
+            </div>
+          )
+        }
       </div>
     </div>
 
     <!-- Feature 3: Connections -->
-    <div class="grid gap-8 lg:gap-12 lg:grid-cols-2 items-center mb-16 sm:mb-24">
+    <div
+      class="grid gap-8 lg:gap-12 lg:grid-cols-2 items-center mb-16 sm:mb-24"
+    >
       <div class="feature-video-wrapper order-2 lg:order-1">
-        <img src="/connections-feature.svg" alt="Supported photo sources: OneDrive, Local Files, Pixabay, Google Photos, iCloud Photos" width="854" height="480" loading="lazy" />
+        <img
+          src="/connections-feature.svg"
+          alt="Supported photo sources: OneDrive, Local Files, Pixabay, Google Photos, iCloud Photos"
+          width="854"
+          height="480"
+          loading="lazy"
+        />
       </div>
       <div class="order-1 lg:order-2">
-        <div class="inline-block text-xs font-medium uppercase tracking-widest px-3 py-1 rounded-full mb-4" style="background: var(--accent-glow); color: var(--accent);">
+        <div
+          class="inline-block text-xs font-medium uppercase tracking-widest px-3 py-1 rounded-full mb-4"
+          style="background: var(--accent-glow); color: var(--accent);"
+        >
           Rich Content
         </div>
-        <h3 class="text-xl sm:text-2xl font-bold mb-3" style="color: var(--text-primary);">
+        <h3
+          class="text-xl sm:text-2xl font-bold mb-3"
+          style="color: var(--text-primary);"
+        >
           Add variety with multiple sources
         </h3>
         <p style="color: var(--text-secondary); line-height: 1.7;">
-          Pull from OneDrive, Pixabay, or your local files &mdash; all in the same slideshow.
-          TwineLine supports migration from Google Photos or iCloud Photos.
-          We&rsquo;re also adding museum collections and public archives, so your memories
-          can be enriched with beautiful images from around the world.
+          Pull from OneDrive, Pixabay, or your local files &mdash; all in the
+          same slideshow. TwineLine supports migration from Google Photos or
+          iCloud Photos. We&rsquo;re also adding museum collections and public
+          archives, so your memories can be enriched with beautiful images from
+          around the world.
         </p>
       </div>
     </div>
 
-    <!-- Feature 4: Multi-Device -->
-    <div class="grid gap-8 lg:gap-12 lg:grid-cols-2 items-center">
+    <!-- Feature 4: Time Travel -->
+    <div
+      class="grid gap-8 lg:gap-12 lg:grid-cols-2 items-center mb-16 sm:mb-24"
+    >
       <div class="order-1">
-        <div class="inline-block text-xs font-medium uppercase tracking-widest px-3 py-1 rounded-full mb-4" style="background: var(--accent-glow); color: var(--accent);">
-          Your AI
+        <div
+          class="inline-block text-xs font-medium uppercase tracking-widest px-3 py-1 rounded-full mb-4"
+          style="background: var(--accent-glow); color: var(--accent);"
+        >
+          Time Travel
         </div>
-        <h3 class="text-xl sm:text-2xl font-bold mb-3" style="color: var(--text-primary);">
-          Photo intelligence you own
+        <h3
+          class="text-xl sm:text-2xl font-bold mb-3"
+          style="color: var(--text-primary);"
+        >
+          Automatic phone sync
         </h3>
         <p style="color: var(--text-secondary); line-height: 1.7;">
-          TwineLine uses AI to understand the people, places, and moments in your photos.
-          Unlike Google, Apple, or Microsoft, we don&rsquo;t lock these insights away or change the rules.
-          Your photo intelligence belongs to you, is controlled by you, and isn&rsquo;t accessible to anyone but you.
+          Take a photo today, see it in a slideshow tomorrow. Widen the lens and
+          see photos from the last week, last month, whatever you like. Or this
+          day throughout the years. Your memories have never been richer.
         </p>
       </div>
       <div class="feature-video-wrapper order-2">
-        <img src="https://media.twineline.ai/ai-feature-v2.webp" alt="AI-powered photo intelligence" width="854" height="466" loading="lazy" />
+        <img
+          src="/time-travel-feature.jpg"
+          alt="Time travel through your photo memories"
+          width="854"
+          height="480"
+          loading="lazy"
+        />
+      </div>
+    </div>
+
+    <!-- Feature 5: All Yours -->
+    <div class="grid gap-8 lg:gap-12 lg:grid-cols-2 items-center">
+      <div class="feature-video-wrapper order-2 lg:order-1">
+        <img
+          src="https://media.twineline.ai/ai-feature-v2.webp"
+          alt="AI-powered photo intelligence"
+          width="854"
+          height="466"
+          loading="lazy"
+        />
+      </div>
+      <div class="order-1 lg:order-2">
+        <div
+          class="inline-block text-xs font-medium uppercase tracking-widest px-3 py-1 rounded-full mb-4"
+          style="background: var(--accent-glow); color: var(--accent);"
+        >
+          All Yours
+        </div>
+        <h3
+          class="text-xl sm:text-2xl font-bold mb-3"
+          style="color: var(--text-primary);"
+        >
+          Photo intelligence you own
+        </h3>
+        <p style="color: var(--text-secondary); line-height: 1.7;">
+          TwineLine uses AI to understand the people, places, and moments in
+          your photos. Unlike Google, Apple, or Microsoft, we don&rsquo;t lock
+          these insights away or change the rules. Your photo intelligence
+          belongs to you, is controlled by you, and isn&rsquo;t accessible to
+          anyone but you.
+        </p>
       </div>
     </div>
   </section>
 
   <!-- Get Started -->
   <section class="mx-auto max-w-5xl px-4 sm:px-6 py-12 sm:py-16 text-center">
-    <h2 class="text-2xl sm:text-3xl font-bold mb-4" style="color: var(--text-primary);">Ready to try it?</h2>
-    <p class="mb-6" style="color: var(--text-secondary);">Setup takes about 15 minutes. We walk you through every step.</p>
-    <a href="/guide" class="btn-accent inline-block">
-      Get started
-    </a>
+    <h2
+      class="text-2xl sm:text-3xl font-bold mb-4"
+      style="color: var(--text-primary);"
+    >
+      Ready to try it?
+    </h2>
+    <p class="mb-6" style="color: var(--text-secondary);">
+      Setup takes about 15 minutes. We walk you through every step.
+    </p>
+    <a href="/guide" class="btn-accent inline-block"> Get started </a>
   </section>
 </BaseLayout>

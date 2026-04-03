@@ -27,7 +27,7 @@
   position: fixed;
   inset: 0;
   z-index: -1;
-  background: var(--bg-deep) url('/bg-dark.webp') center / cover no-repeat;
+  background: var(--bg-deep) url("/bg-dark.webp") center / cover no-repeat;
 }
 
 /* Glassmorphic panel */
@@ -47,8 +47,6 @@
 /* Mostly-opaque content surface for dense/technical pages */
 .content-pane {
   background: rgb(18 19 26 / 75%);
-  border: 1px solid var(--glass-border);
-  border-radius: 16px;
 }
 
 /* Glassmorphic nav bar */
@@ -157,7 +155,7 @@
 }
 
 /* Starlight overrides — blend docs into the dark glassmorphic theme */
-:root[data-theme='light'] {
+:root[data-theme="light"] {
   --sl-color-bg: #1e1e1e;
   --sl-color-bg-sidebar: rgba(26, 26, 26, 0.8);
   --sl-color-bg-nav: rgba(26, 26, 26, 0.85);
@@ -179,7 +177,7 @@
   --sl-color-text-accent: #d4a056;
 }
 
-:root[data-theme='dark'] {
+:root[data-theme="dark"] {
   --sl-color-bg: #151515;
   --sl-color-bg-sidebar: rgba(21, 21, 21, 0.9);
   --sl-color-bg-nav: rgba(21, 21, 21, 0.85);

@@ -69,9 +69,7 @@ export async function lookupDns(
       return { ok: true, records: data.result ?? [] };
     } catch {
       if (attempt < MAX_RETRIES) {
-        await new Promise((r) =>
-          setTimeout(r, RETRY_DELAY_MS * (attempt + 1)),
-        );
+        await new Promise((r) => setTimeout(r, RETRY_DELAY_MS * (attempt + 1)));
         continue;
       }
       return { ok: false, status: 502, message: "Could not check DNS records" };
@@ -175,9 +173,7 @@ async function mutateWithRetry(
       return { ok: true };
     } catch {
       if (attempt < MAX_RETRIES) {
-        await new Promise((r) =>
-          setTimeout(r, RETRY_DELAY_MS * (attempt + 1)),
-        );
+        await new Promise((r) => setTimeout(r, RETRY_DELAY_MS * (attempt + 1)));
         continue;
       }
       return { ok: false, status: 500, message: "Cloudflare API error" };

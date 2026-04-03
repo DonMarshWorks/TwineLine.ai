@@ -1,0 +1,140 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="OneDrive for TwineLine"
+  description="OneDrive storage options and pricing for use with TwineLine."
+>
+  <div
+    class="content-pane mx-auto max-w-4xl mt-0 md:mt-10 mb-0 md:mb-20 px-4 md:px-10 py-6 md:py-12 rounded-none md:rounded-2xl border-0 md:border"
+    style="--tw-border-opacity:1; border-color: rgba(255, 255, 255, 0.15);"
+  >
+    <section class="py-3 sm:py-5">
+      <h1
+        class="text-2xl sm:text-3xl font-bold tracking-tight leading-tight mb-4"
+        style="color: var(--text-primary);"
+      >
+        OneDrive for TwineLine
+      </h1>
+
+      <p
+        class="text-sm sm:text-base leading-relaxed mb-4"
+        style="color: var(--text-secondary);"
+      >
+        TwineLine uses Microsoft OneDrive to store and access your photos and
+        videos. OneDrive provides the best cross-platform access of any major
+        cloud storage provider, which is why TwineLine relies on it.
+      </p>
+
+      <h2
+        class="text-lg sm:text-xl font-bold mb-3 mt-6"
+        style="color: var(--text-primary);"
+      >
+        Storage options
+      </h2>
+
+      <div class="overflow-x-auto">
+        <table
+          class="w-full text-sm sm:text-base"
+          style="color: var(--text-secondary);"
+        >
+          <thead>
+            <tr style="border-bottom: 1px solid var(--glass-border);">
+              <th
+                class="text-left py-2 pr-4 font-semibold"
+                style="color: var(--text-primary);">Plan</th
+              >
+              <th
+                class="text-left py-2 pr-4 font-semibold"
+                style="color: var(--text-primary);">Storage</th
+              >
+              <th
+                class="text-left py-2 pr-4 font-semibold"
+                style="color: var(--text-primary);">Price</th
+              >
+              <th
+                class="text-left py-2 font-semibold"
+                style="color: var(--text-primary);">Notes</th
+              >
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom: 1px solid var(--glass-border);">
+              <td class="py-2 pr-4">OneDrive Basic</td>
+              <td class="py-2 pr-4">5 GB</td>
+              <td class="py-2 pr-4">Free</td>
+              <td class="py-2"
+                >Good for trying TwineLine with a small collection</td
+              >
+            </tr>
+            <tr style="border-bottom: 1px solid var(--glass-border);">
+              <td class="py-2 pr-4">Microsoft 365 Basic</td>
+              <td class="py-2 pr-4">100 GB</td>
+              <td class="py-2 pr-4">$1.99/mo</td>
+              <td class="py-2">Suitable for moderate collections</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--glass-border);">
+              <td class="py-2 pr-4">Microsoft 365 Personal</td>
+              <td class="py-2 pr-4">1 TB</td>
+              <td class="py-2 pr-4">$8.99/mo*</td>
+              <td class="py-2"
+                >Includes Office apps; recommended for large collections</td
+              >
+            </tr>
+            <tr>
+              <td class="py-2 pr-4">Microsoft 365 Family</td>
+              <td class="py-2 pr-4">6 TB</td>
+              <td class="py-2 pr-4">$12.99/mo*</td>
+              <td class="py-2">Up to 6 people, 1 TB each</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="mt-2" style="color: var(--text-muted); font-size: 0.8rem;">
+        *Paid annually. Monthly billing is slightly higher.
+      </p>
+
+      <h2
+        class="text-lg sm:text-xl font-bold mb-3 mt-6"
+        style="color: var(--text-primary);"
+      >
+        How much storage do I need?
+      </h2>
+      <p
+        class="text-sm sm:text-base leading-relaxed mb-4"
+        style="color: var(--text-secondary);"
+      >
+        A typical phone photo is about 3&ndash;5 MB. A collection of 10,000
+        photos would need roughly 30&ndash;50 GB of storage. Videos take
+        significantly more space. If you have a large collection with lots of
+        video, the 1 TB plan is the best value.
+      </p>
+
+      <h2
+        class="text-lg sm:text-xl font-bold mb-3 mt-6"
+        style="color: var(--text-primary);"
+      >
+        Why not Google Drive or iCloud?
+      </h2>
+      <p
+        class="text-sm sm:text-base leading-relaxed mb-4"
+        style="color: var(--text-secondary);"
+      >
+        Google closed third-party API access to Google Photos in 2025.
+        Apple&rsquo;s iCloud Photos API is only available on Apple devices.
+        Microsoft OneDrive is the only major provider that offers full,
+        cross-platform API access to photos and their metadata (including
+        location data), which TwineLine needs to create intelligent slideshows.
+      </p>
+
+      <div class="mt-6">
+        <a
+          href="/how-it-works"
+          class="nav-link text-sm"
+          style="color: var(--accent);">&larr; Back to How it works</a
+        >
+      </div>
+    </section>
+  </div>
+</BaseLayout>

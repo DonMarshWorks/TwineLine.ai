@@ -93,7 +93,9 @@ describe("validateUsername", () => {
   describe("edge cases", () => {
     it("handles null-like input", () => {
       expect(validateUsername(null as unknown as string).valid).toBe(false);
-      expect(validateUsername(undefined as unknown as string).valid).toBe(false);
+      expect(validateUsername(undefined as unknown as string).valid).toBe(
+        false,
+      );
     });
 
     it("trims whitespace", () => {

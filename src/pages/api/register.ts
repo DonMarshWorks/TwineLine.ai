@@ -33,27 +33,18 @@ export const POST: APIRoute = async ({ request, locals }) => {
   try {
     body = await request.json();
   } catch {
-    return Response.json(
-      { error: "Invalid JSON body" },
-      { status: 400 },
-    );
+    return Response.json({ error: "Invalid JSON body" }, { status: 400 });
   }
 
   // Validate name
   const rawName = body.name;
   if (!rawName) {
-    return Response.json(
-      { error: "Name is required" },
-      { status: 400 },
-    );
+    return Response.json({ error: "Name is required" }, { status: 400 });
   }
 
   const nameValidation = validateUsername(rawName);
   if (!nameValidation.valid) {
-    return Response.json(
-      { error: nameValidation.error },
-      { status: 400 },
-    );
+    return Response.json({ error: nameValidation.error }, { status: 400 });
   }
 
   const name = rawName.toLowerCase().trim();
@@ -61,18 +52,12 @@ export const POST: APIRoute = async ({ request, locals }) => {
   // Validate IP
   const rawIp = body.ip;
   if (!rawIp) {
-    return Response.json(
-      { error: "IP address is required" },
-      { status: 400 },
-    );
+    return Response.json({ error: "IP address is required" }, { status: 400 });
   }
 
   const ipValidation = validateIpv4(rawIp);
   if (!ipValidation.valid) {
-    return Response.json(
-      { error: ipValidation.error },
-      { status: 400 },
-    );
+    return Response.json({ error: ipValidation.error }, { status: 400 });
   }
 
   const ip = rawIp.trim();
