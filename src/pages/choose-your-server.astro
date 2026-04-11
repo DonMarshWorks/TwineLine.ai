@@ -1,0 +1,354 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="Choose your server - TwineLine"
+  description="Compare home and cloud server options and get step-by-step install instructions for TwineLine."
+>
+  <div class="mx-auto max-w-4xl px-4 sm:px-6 py-12 sm:py-20">
+    <!-- Which setup is right for me -->
+    <section class="mb-12">
+      <h2
+        class="text-xl sm:text-2xl font-bold mb-2"
+        style="color: var(--text-primary);"
+      >
+        Which server is right for me?
+      </h2>
+      <p class="text-base mb-6" style="color: var(--text-secondary);">
+        There is no wrong choice &mdash; you can change your server anytime
+        without losing your photos, face recognition data, or slideshows.
+      </p>
+
+      <!-- Comparison table -->
+      <div class="glass p-5 sm:p-6 overflow-x-auto">
+        <table class="w-full text-sm" style="color: var(--text-secondary);">
+          <thead>
+            <tr style="border-bottom: 1px solid var(--glass-border);">
+              <th
+                class="text-left py-3 pr-4"
+                style="color: var(--text-primary);"></th>
+              <th
+                class="text-left py-3 px-4"
+                style="color: var(--text-primary);">Cloud (Hetzner)</th
+              >
+              <th
+                class="text-left py-3 pl-4"
+                style="color: var(--text-primary);">Your computer</th
+              >
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom: 1px solid var(--glass-border);">
+              <td
+                class="py-3 pr-4 font-medium"
+                style="color: var(--text-primary);">Cost</td
+              >
+              <td class="py-3 px-4">~$5/month (first month free)</td>
+              <td class="py-3 pl-4">Free forever</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--glass-border);">
+              <td
+                class="py-3 pr-4 font-medium"
+                style="color: var(--text-primary);">Always running?</td
+              >
+              <td class="py-3 px-4">Yes, 24/7</td>
+              <td class="py-3 pl-4">Only when your computer is on</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--glass-border);">
+              <td
+                class="py-3 pr-4 font-medium"
+                style="color: var(--text-primary);"
+                >Access outside your home?</td
+              >
+              <td class="py-3 px-4">Yes, from anywhere</td>
+              <td class="py-3 pl-4">No (home network only)</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--glass-border);">
+              <td
+                class="py-3 pr-4 font-medium"
+                style="color: var(--text-primary);">Fast AI analysis</td
+              >
+              <td class="py-3 px-4"
+                >Optional turbo mode ($10&ndash;$20 one-time)</td
+              >
+              <td class="py-3 pl-4">Standard speed</td>
+            </tr>
+            <tr>
+              <td
+                class="py-3 pr-4 font-medium"
+                style="color: var(--text-primary);">Best for</td
+              >
+              <td class="py-3 px-4"
+                >Families across multiple homes</td
+              >
+              <td class="py-3 pl-4">Single household, photos on hard drive</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Install instructions -->
+    <section>
+      <h2
+        class="text-xl sm:text-2xl font-bold mb-6"
+        style="color: var(--text-primary);"
+      >
+        Install
+      </h2>
+
+      <!-- Platform tabs -->
+      <div
+        class="flex gap-1 mb-4 p-1 rounded-xl w-fit"
+        style="background: var(--glass-bg); border: 1px solid var(--glass-border);"
+      >
+        <button
+          class="platform-tab active px-4 py-2 rounded-lg text-sm font-medium transition-all"
+          data-platform="cloud">Cloud</button
+        >
+        <button
+          class="platform-tab px-4 py-2 rounded-lg text-sm font-medium transition-all"
+          data-platform="windows">Windows</button
+        >
+        <button
+          class="platform-tab px-4 py-2 rounded-lg text-sm font-medium transition-all"
+          data-platform="macos">Mac</button
+        >
+        <button
+          class="platform-tab px-4 py-2 rounded-lg text-sm font-medium transition-all"
+          data-platform="linux">Linux</button
+        >
+      </div>
+
+      <!-- Cloud server instructions -->
+      <div class="platform-content glass p-6" data-platform="cloud">
+        <ol class="space-y-4" style="color: var(--text-secondary);">
+          <li class="flex gap-3">
+            <span
+              class="shrink-0 flex items-center justify-center w-6 h-6 rounded-full text-xs font-bold"
+              style="background: var(--accent); color: #fff;">1</span
+            >
+            <div>
+              <p>
+                Create a free account at <a
+                  href="https://www.hetzner.com/cloud/"
+                  class="underline"
+                  style="color: var(--accent);"
+                  target="_blank"
+                  rel="noopener noreferrer">Hetzner Cloud</a
+                >.
+              </p>
+            </div>
+          </li>
+          <li class="flex gap-3">
+            <span
+              class="shrink-0 flex items-center justify-center w-6 h-6 rounded-full text-xs font-bold"
+              style="background: var(--accent); color: #fff;">2</span
+            >
+            <div>
+              <p>Create a new project and add a server:</p>
+              <ul class="mt-2 ml-4 space-y-1 text-sm list-disc" style="color: var(--text-muted);">
+                <li>Location: closest to you</li>
+                <li>Image: Ubuntu 24.04</li>
+                <li>Type: CAX11 (2 vCPU Arm, 4 GB RAM) &mdash; ~$4.5/month</li>
+              </ul>
+            </div>
+          </li>
+          <li class="flex gap-3">
+            <span
+              class="shrink-0 flex items-center justify-center w-6 h-6 rounded-full text-xs font-bold"
+              style="background: var(--accent); color: #fff;">3</span
+            >
+            <div>
+              <p>SSH into your server and paste this command:</p>
+              <div class="mt-2 relative group">
+                <pre
+                  class="rounded-lg px-4 py-3 text-sm overflow-x-auto"
+                  style="background: rgba(0,0,0,0.4); border: 1px solid var(--glass-border); color: var(--text-primary);"><code>curl -fsSL https://twineline.ai/install.sh | bash</code></pre>
+                <button
+                  class="copy-btn absolute top-2 right-2 px-2 py-1 rounded text-xs opacity-0 group-hover:opacity-100 transition-opacity"
+                  style="background: var(--glass-bg); border: 1px solid var(--glass-border); color: var(--text-muted);"
+                  data-copy="curl -fsSL https://twineline.ai/install.sh | bash"
+                  >Copy</button
+                >
+              </div>
+            </div>
+          </li>
+          <li class="flex gap-3">
+            <span
+              class="shrink-0 flex items-center justify-center w-6 h-6 rounded-full text-xs font-bold"
+              style="background: var(--accent); color: #fff;">4</span
+            >
+            <p>
+              Open <code style="color: var(--accent);">http://&lt;your-server-ip&gt;:8080</code> in your browser
+            </p>
+          </li>
+        </ol>
+      </div>
+
+      <!-- Windows instructions -->
+      <div class="platform-content glass p-6 hidden" data-platform="windows">
+        <ol class="space-y-4" style="color: var(--text-secondary);">
+          <li class="flex gap-3">
+            <span
+              class="shrink-0 flex items-center justify-center w-6 h-6 rounded-full text-xs font-bold"
+              style="background: var(--accent); color: #fff;">1</span
+            >
+            <div>
+              <p>Open PowerShell and paste this command:</p>
+              <div class="mt-2 relative group">
+                <pre
+                  class="rounded-lg px-4 py-3 text-sm overflow-x-auto"
+                  style="background: rgba(0,0,0,0.4); border: 1px solid var(--glass-border); color: var(--text-primary);"><code>irm https://twineline.ai/install.ps1 | iex</code></pre>
+                <button
+                  class="copy-btn absolute top-2 right-2 px-2 py-1 rounded text-xs opacity-0 group-hover:opacity-100 transition-opacity"
+                  style="background: var(--glass-bg); border: 1px solid var(--glass-border); color: var(--text-muted);"
+                  data-copy="irm https://twineline.ai/install.ps1 | iex"
+                  >Copy</button
+                >
+              </div>
+            </div>
+          </li>
+          <li class="flex gap-3">
+            <span
+              class="shrink-0 flex items-center justify-center w-6 h-6 rounded-full text-xs font-bold"
+              style="background: var(--accent); color: #fff;">2</span
+            >
+            <p>
+              Open <a
+                href="http://localhost:8080"
+                class="underline"
+                style="color: var(--accent);">http://localhost:8080</a
+              > in your browser
+            </p>
+          </li>
+        </ol>
+      </div>
+
+      <!-- Mac instructions -->
+      <div class="platform-content glass p-6 hidden" data-platform="macos">
+        <ol class="space-y-4" style="color: var(--text-secondary);">
+          <li class="flex gap-3">
+            <span
+              class="shrink-0 flex items-center justify-center w-6 h-6 rounded-full text-xs font-bold"
+              style="background: var(--accent); color: #fff;">1</span
+            >
+            <div>
+              <p>Open Terminal and paste this command:</p>
+              <div class="mt-2 relative group">
+                <pre
+                  class="rounded-lg px-4 py-3 text-sm overflow-x-auto"
+                  style="background: rgba(0,0,0,0.4); border: 1px solid var(--glass-border); color: var(--text-primary);"><code>curl -fsSL https://twineline.ai/install.sh | bash</code></pre>
+                <button
+                  class="copy-btn absolute top-2 right-2 px-2 py-1 rounded text-xs opacity-0 group-hover:opacity-100 transition-opacity"
+                  style="background: var(--glass-bg); border: 1px solid var(--glass-border); color: var(--text-muted);"
+                  data-copy="curl -fsSL https://twineline.ai/install.sh | bash"
+                  >Copy</button
+                >
+              </div>
+            </div>
+          </li>
+          <li class="flex gap-3">
+            <span
+              class="shrink-0 flex items-center justify-center w-6 h-6 rounded-full text-xs font-bold"
+              style="background: var(--accent); color: #fff;">2</span
+            >
+            <p>
+              Open <a
+                href="http://localhost:8080"
+                class="underline"
+                style="color: var(--accent);">http://localhost:8080</a
+              > in your browser
+            </p>
+          </li>
+        </ol>
+      </div>
+
+      <!-- Linux instructions -->
+      <div class="platform-content glass p-6 hidden" data-platform="linux">
+        <ol class="space-y-4" style="color: var(--text-secondary);">
+          <li class="flex gap-3">
+            <span
+              class="shrink-0 flex items-center justify-center w-6 h-6 rounded-full text-xs font-bold"
+              style="background: var(--accent); color: #fff;">1</span
+            >
+            <div>
+              <p>Open a terminal and paste this command:</p>
+              <div class="mt-2 relative group">
+                <pre
+                  class="rounded-lg px-4 py-3 text-sm overflow-x-auto"
+                  style="background: rgba(0,0,0,0.4); border: 1px solid var(--glass-border); color: var(--text-primary);"><code>curl -fsSL https://twineline.ai/install.sh | bash</code></pre>
+                <button
+                  class="copy-btn absolute top-2 right-2 px-2 py-1 rounded text-xs opacity-0 group-hover:opacity-100 transition-opacity"
+                  style="background: var(--glass-bg); border: 1px solid var(--glass-border); color: var(--text-muted);"
+                  data-copy="curl -fsSL https://twineline.ai/install.sh | bash"
+                  >Copy</button
+                >
+              </div>
+            </div>
+          </li>
+          <li class="flex gap-3">
+            <span
+              class="shrink-0 flex items-center justify-center w-6 h-6 rounded-full text-xs font-bold"
+              style="background: var(--accent); color: #fff;">2</span
+            >
+            <p>
+              Open <a
+                href="http://localhost:8080"
+                class="underline"
+                style="color: var(--accent);">http://localhost:8080</a
+              > in your browser
+            </p>
+          </li>
+        </ol>
+      </div>
+    </section>
+  </div>
+
+  <style>
+    .platform-tab {
+      color: var(--text-muted);
+      cursor: pointer;
+    }
+    .platform-tab:hover {
+      color: var(--text-primary);
+    }
+    .platform-tab.active {
+      background: var(--accent);
+      color: #fff;
+    }
+  </style>
+
+  <script is:inline>
+    // ── Platform tabs ──────────────────────────────────────────────────────
+    const tabs = document.querySelectorAll(".platform-tab");
+    const panels = document.querySelectorAll(".platform-content");
+
+    function switchPlatform(platform) {
+      tabs.forEach((t) =>
+        t.classList.toggle("active", t.dataset.platform === platform),
+      );
+      panels.forEach((p) =>
+        p.classList.toggle("hidden", p.dataset.platform !== platform),
+      );
+    }
+
+    tabs.forEach((tab) => {
+      tab.addEventListener("click", () => switchPlatform(tab.dataset.platform));
+    });
+
+    // ── Copy buttons ───────────────────────────────────────────────────────
+    document.querySelectorAll(".copy-btn").forEach((btn) => {
+      btn.addEventListener("click", async () => {
+        try {
+          await navigator.clipboard.writeText(btn.dataset.copy);
+          btn.textContent = "Copied!";
+        } catch {
+          btn.textContent = "Failed";
+        }
+        setTimeout(() => (btn.textContent = "Copy"), 2000);
+      });
+    });
+  </script>
+</BaseLayout>
