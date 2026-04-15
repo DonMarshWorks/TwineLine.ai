@@ -1,0 +1,347 @@
+---
+// Connect page: entry point for Fire TV and browser clients.
+// Redirects to the user's personal TwineLine server.
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>TwineLine - Connect</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        background: #000;
+        color: #fff;
+        font-family:
+          system-ui,
+          -apple-system,
+          sans-serif;
+      }
+
+      .connect-page {
+        position: fixed;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .logo {
+        position: absolute;
+        top: 30dvh;
+        left: 50%;
+        transform: translateX(-50%);
+        width: auto;
+        height: min(16rem, 47dvh);
+        z-index: 1;
+        filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3));
+      }
+
+      .connect-card {
+        position: relative;
+        z-index: 1;
+        text-align: center;
+        margin-top: calc(30dvh + min(16rem, 47dvh));
+        max-width: 360px;
+        width: 90%;
+        padding: 2rem;
+      }
+
+      .form {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .field {
+        text-align: left;
+      }
+
+      .field label {
+        display: block;
+        font-size: 0.85rem;
+        color: #999;
+        margin-bottom: 0.25rem;
+      }
+
+      .username-row {
+        display: flex;
+        align-items: center;
+      }
+
+      .username-row input {
+        flex: 1;
+        min-width: 0;
+        padding: 0.7rem 0.9rem;
+        border-radius: 8px 0 0 8px;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        border-right: none;
+        background: rgba(255, 255, 255, 0.08);
+        color: #fff;
+        font-size: 1rem;
+        outline: none;
+        transition:
+          border-color 0.2s,
+          box-shadow 0.2s;
+      }
+
+      .username-row input:focus {
+        border-color: rgba(100, 160, 255, 1);
+        box-shadow:
+          0 0 0 3px rgba(100, 160, 255, 0.5),
+          0 0 16px rgba(100, 160, 255, 0.3);
+      }
+
+      .url-suffix {
+        padding: 0.7rem 0.7rem;
+        border-radius: 0 8px 8px 0;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        border-left: none;
+        background: rgba(255, 255, 255, 0.04);
+        color: rgba(255, 255, 255, 0.45);
+        font-size: 0.9rem;
+        white-space: nowrap;
+        line-height: 1.5;
+      }
+
+      .error {
+        font-size: 0.9rem;
+        color: #ff6b6b;
+        padding: 0.6rem 0.8rem;
+        background: rgba(255, 107, 107, 0.1);
+        border-radius: 8px;
+      }
+
+      .connect-button {
+        padding: 0.75rem 1.5rem;
+        border-radius: 8px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        background: rgba(100, 160, 255, 0.15);
+        color: #fff;
+        font-size: 1rem;
+        cursor: pointer;
+        transition:
+          background 0.2s,
+          border-color 0.2s,
+          box-shadow 0.2s;
+      }
+
+      .connect-button:hover:not(:disabled) {
+        background: rgba(100, 160, 255, 0.25);
+        border-color: rgba(100, 160, 255, 1);
+        box-shadow:
+          0 0 0 3px rgba(100, 160, 255, 0.5),
+          0 0 16px rgba(100, 160, 255, 0.3);
+      }
+
+      .connect-button:disabled {
+        opacity: 0.4;
+        cursor: default;
+      }
+
+      /* Background orbs */
+      .orb {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(40px);
+        animation: drift ease-in-out infinite alternate;
+      }
+
+      .orb-1 {
+        width: 280px;
+        height: 280px;
+        background: rgba(24, 46, 90, 0.55);
+        top: -10%;
+        left: 10%;
+        animation-duration: 12s;
+        animation-name: drift-1;
+      }
+
+      .orb-2 {
+        width: 180px;
+        height: 180px;
+        background: rgba(66, 25, 83, 0.5);
+        top: 60%;
+        right: -5%;
+        animation-duration: 10s;
+        animation-name: drift-2;
+      }
+
+      .orb-3 {
+        width: 220px;
+        height: 220px;
+        background: rgba(17, 68, 68, 0.55);
+        bottom: -8%;
+        left: 30%;
+        animation-duration: 14s;
+        animation-name: drift-3;
+      }
+
+      @keyframes drift-1 {
+        to {
+          transform: translate(40vw, 50vh) scale(1.3);
+        }
+      }
+      @keyframes drift-2 {
+        to {
+          transform: translate(-45vw, -40vh) scale(1.2);
+        }
+      }
+      @keyframes drift-3 {
+        to {
+          transform: translate(30vw, -60vh) scale(0.7);
+        }
+      }
+
+      .hidden {
+        display: none;
+      }
+
+      @media (max-height: 500px) {
+        .logo {
+          top: 8dvh;
+        }
+        .connect-card {
+          margin-top: calc(4dvh + min(16rem, 47dvh));
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="connect-page">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="orb orb-3"></div>
+
+      <img src="/logo.svg" alt="TwineLine" class="logo" />
+
+      <div class="connect-card">
+        <form id="connect-form" class="form" autocomplete="off">
+          <div class="field">
+            <label for="username">Slideshow</label>
+            <div class="username-row">
+              <input
+                id="username"
+                type="text"
+                autocomplete="off"
+                autocapitalize="off"
+                autocorrect="off"
+                spellcheck="false"
+                placeholder="username"
+              />
+              <span class="url-suffix">.twineline.ai</span>
+            </div>
+          </div>
+
+          <p id="error" class="error hidden"></p>
+
+          <button type="submit" class="connect-button" disabled> Connect </button>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      import { validateConnectUsername, buildConnectRedirectUrl } from "../lib/connect";
+
+      const STORAGE_KEY = "twineline_connect_username";
+
+      const input = document.getElementById("username") as HTMLInputElement;
+      const form = document.getElementById("connect-form") as HTMLFormElement;
+      const errorEl = document.getElementById("error") as HTMLParagraphElement;
+      const btn = form.querySelector("button") as HTMLButtonElement;
+
+      function getStored(): string | null {
+        try { return localStorage.getItem(STORAGE_KEY); } catch { return null; }
+      }
+
+      function setStored(value: string): void {
+        try { localStorage.setItem(STORAGE_KEY, value); } catch {}
+      }
+
+      function clearStored(): void {
+        try { localStorage.removeItem(STORAGE_KEY); } catch {}
+      }
+
+      function showError(message: string): void {
+        errorEl.textContent = message;
+        errorEl.classList.remove("hidden");
+      }
+
+      function setBusy(busy: boolean): void {
+        btn.disabled = busy;
+        btn.textContent = busy ? "Checking…" : "Connect";
+      }
+
+      async function checkRegistered(username: string): Promise<boolean> {
+        try {
+          const res = await fetch(`/api/connect/${encodeURIComponent(username)}`);
+          if (!res.ok) return false;
+          const data = await res.json();
+          return data.registered === true;
+        } catch {
+          // Network error — let the redirect proceed rather than blocking
+          return true;
+        }
+      }
+
+      // ?reset clears saved username
+      const params = new URLSearchParams(window.location.search);
+      if (params.has("reset")) {
+        clearStored();
+      }
+
+      // Pre-fill from saved value, focus the button so one press connects
+      const saved = getStored();
+      if (saved) {
+        input.value = saved;
+        btn.disabled = false;
+        btn.focus();
+      } else {
+        input.focus();
+      }
+
+      input.addEventListener("input", function () {
+        const val = input.value.toLowerCase().trim();
+        btn.disabled = !val;
+        errorEl.classList.add("hidden");
+      });
+
+      form.addEventListener("submit", async function (e) {
+        e.preventDefault();
+        const username = input.value.toLowerCase().trim();
+        if (!username) return;
+
+        const result = validateConnectUsername(username);
+        if (!result.valid) {
+          showError(result.error!);
+          return;
+        }
+
+        setBusy(true);
+        errorEl.classList.add("hidden");
+
+        const registered = await checkRegistered(username);
+        if (!registered) {
+          setBusy(false);
+          showError("Username is not registered");
+          return;
+        }
+
+        setStored(username);
+        window.location.href = buildConnectRedirectUrl(username);
+      });
+    </script>
+  </body>
+</html>
