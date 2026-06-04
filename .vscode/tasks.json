@@ -2,39 +2,38 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "Start Astro Dev Server",
-      "type": "shell",
-      "command": "npm run dev",
-      "group": "build",
-      "presentation": {
-        "echo": true,
-        "reveal": "always",
-        "focus": false,
-        "panel": "dedicated",
-        "showReuseMessage": false,
-        "clear": true,
-        "close": false
-      },
-      "isBackground": true,
-      "problemMatcher": []
-    },
-    {
       "label": "Cleanup Servers",
       "type": "shell",
-      "command": "pid=$(netstat -ano 2>/dev/null | grep ':4321.*LISTENING' | awk '{print $NF}' | head -1); [ -n \"$pid\" ] && taskkill //F //PID $pid >/dev/null 2>&1; exit 0",
+      "command": "${workspaceFolder}/.vscode/cleanup_servers.bat",
+      "windows": {
+        "command": "${workspaceFolder}\\.vscode\\cleanup_servers.bat",
+        "options": {
+          "shell": {
+            "executable": "cmd.exe",
+            "args": ["/c"]
+          }
+        }
+      },
       "presentation": {
-        "reveal": "silent",
+        "reveal": "always",
         "panel": "shared",
         "close": true
       },
       "problemMatcher": []
     },
     {
-      "label": "Prepare Debug Environment",
+      "label": "Wait for Dev Server",
       "type": "shell",
-      "command": "npm run dev > /dev/null 2>&1 & for i in $(seq 1 30); do curl -s http://localhost:4321 > /dev/null 2>&1 && exit 0; sleep 1; done; exit 1",
-      "dependsOn": ["Cleanup Servers"],
-      "dependsOrder": "sequence",
+      "command": "${workspaceFolder}/.vscode/wait_for_server.bat",
+      "windows": {
+        "command": "${workspaceFolder}\\.vscode\\wait_for_server.bat",
+        "options": {
+          "shell": {
+            "executable": "cmd.exe",
+            "args": ["/c"]
+          }
+        }
+      },
       "presentation": {
         "reveal": "silent",
         "panel": "shared",
