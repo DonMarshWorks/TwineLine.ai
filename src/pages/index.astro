@@ -60,14 +60,27 @@ const CONSOLE_URL = "https://my.twineline.ai";
     />
     <title>TwineLine.ai</title>
   </head>
+  <!-- The page is sized to fit the viewport exactly, so there is no
+       scrollbar at all. The first version gave <main> `min-h-screen` and
+       then put a footer BELOW it, which is a guaranteed overflow: 100vh
+       plus a footer is more than 100vh.
+
+       `dvh` rather than `vh` because on mobile `100vh` is the viewport with
+       the browser chrome RETRACTED, so a `100vh` page overflows by the
+       height of the address bar until you scroll. `dvh` tracks the chrome
+       as it hides and shows.
+
+       `min-h-dvh` rather than `h-dvh`: if the copy ever outgrows a very
+       short window (a landscape phone), it should scroll rather than be
+       clipped. Scrolling is a worse look; clipping loses content. -->
   <body
-    class="min-h-screen antialiased"
+    class="min-h-dvh flex flex-col antialiased"
     style="font-family: 'Inter', system-ui, sans-serif; color: var(--text-primary); background: var(--bg-deep);"
   >
     <div class="site-bg"></div>
 
     <main
-      class="relative z-10 min-h-screen flex flex-col items-center justify-center px-6 text-center"
+      class="relative z-10 flex-1 flex flex-col items-center justify-center px-6 text-center"
     >
       <h1
         class="text-4xl sm:text-5xl font-semibold tracking-tight"
@@ -82,7 +95,7 @@ const CONSOLE_URL = "https://my.twineline.ai";
         class="mt-6 max-w-md text-lg leading-relaxed"
         style="color: var(--text-secondary);"
       >
-        Your photos, turned into slideshows worth actually watching.
+        Your photos, turned into slideshows worth watching.
       </p>
 
       <p class="mt-4 max-w-md text-sm" style="color: var(--text-muted);">
@@ -101,7 +114,7 @@ const CONSOLE_URL = "https://my.twineline.ai";
       </div>
     </main>
 
-    <footer class="relative z-10 pb-10 text-center">
+    <footer class="relative z-10 shrink-0 pb-8 text-center">
       <p class="text-sm" style="color: var(--text-muted);">
         &copy; {new Date().getFullYear()} TwineLine.ai. All rights reserved.
       </p>
