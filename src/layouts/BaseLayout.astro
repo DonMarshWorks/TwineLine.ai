@@ -105,6 +105,24 @@ const {
             class="nav-link text-sm transition-colors"
             style="color: var(--text-secondary);">Setup guide</a
           >
+          {
+            /*
+            Sign in, top right, where every site puts it -- previously
+            NOTHING anywhere linked to the console, so an existing customer
+            had to already know the address to reach their own account.
+
+            An absolute URL because the console is a different host
+            (my.twineline.ai serves the portal bundle; this site is the
+            Cloudflare-hosted apex). No auth work here: the console owns
+            Clerk, and the Clerk cookie is scoped to `.twineline.ai`, so a
+            signed-in user arriving there is simply already signed in.
+          */
+          }
+          <a
+            href="https://my.twineline.ai"
+            class="nav-link text-sm transition-colors"
+            style="color: var(--text-secondary);">Sign in</a
+          >
           <a href="/how-it-works" class="btn-accent"> Get started </a>
         </div>
       </nav>
@@ -125,6 +143,11 @@ const {
             href="/guide"
             class="rounded-lg px-4 py-3 text-sm transition-colors"
             style="color: var(--text-secondary);">Setup guide</a
+          >
+          <a
+            href="https://my.twineline.ai"
+            class="rounded-lg px-4 py-3 text-sm transition-colors"
+            style="color: var(--text-secondary);">Sign in</a
           >
           <a href="/download" class="btn-accent text-center mt-2"> Download </a>
         </div>
