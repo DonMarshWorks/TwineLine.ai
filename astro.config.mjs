@@ -1,6 +1,5 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
-import starlight from '@astrojs/starlight';
 import vue from '@astrojs/vue';
 import tailwindcss from '@tailwindcss/vite';
 import cloudflare from '@astrojs/cloudflare';
@@ -9,37 +8,12 @@ import cloudflare from '@astrojs/cloudflare';
 export default defineConfig({
   site: 'https://twineline.ai',
 
-  integrations: [
-    starlight({
-      title: 'TwineLine.ai',
-      logo: {
-        src: './public/logo.svg',
-        replacesTitle: false,
-      },
-      social: [
-        { icon: 'github', label: 'GitHub', href: 'https://github.com/twineline' },
-      ],
-      sidebar: [
-        {
-          label: 'Getting Started',
-          items: [
-            { label: 'Introduction', slug: 'introduction' },
-            { label: 'Quick Start', slug: 'quickstart' },
-          ],
-        },
-        {
-          label: 'Guides',
-          autogenerate: { directory: 'guides' },
-        },
-        {
-          label: 'Reference',
-          autogenerate: { directory: 'reference' },
-        },
-      ],
-      customCss: ['./src/styles/global.css'],
-    }),
-    vue(),
-  ],
+  // Starlight is REMOVED on this branch, not merely unlinked. It owned live
+  // routes of its own -- /introduction and /quickstart were serving on
+  // production -- documenting the self-host installer. Deleting the pages
+  // while leaving the integration would have left that documentation up
+  // behind the holding page. `preview` keeps it.
+  integrations: [vue()],
 
   vite: {
     plugins: [tailwindcss()],
