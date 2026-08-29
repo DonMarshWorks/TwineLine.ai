@@ -19,6 +19,52 @@
   --text-secondary: rgba(255, 255, 255, 0.7);
   --text-muted: rgba(255, 255, 255, 0.6);
   --bg-deep: #1a1a1a;
+
+  /* The single most important line for the scrollbar: it tells the browser
+     this page is dark, so it renders scrollbars, form controls and focus
+     rings in their dark variants natively. Without it the UA assumes light
+     and paints a pale grey trough over a near-black page. */
+  color-scheme: dark;
+
+  --scrollbar-thumb: rgba(255, 255, 255, 0.18);
+  --scrollbar-thumb-hover: rgba(255, 255, 255, 0.3);
+}
+
+/* Standard scrollbar styling (Firefox, and Chromium 121+). `thin` because a
+   holding page does not need a chunky one, and the track is left to inherit
+   the page rather than being painted a competing colour. */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-thumb) transparent;
+}
+
+/* WebKit/Blink equivalent, for the versions that do not honour the standard
+   properties yet. Same values, so the two cannot drift visually.
+   `background: transparent` on the track is what stops the pale gutter. */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-thumb);
+  border-radius: 999px;
+  /* Inset the thumb via a transparent border so it reads as a slim pill
+     floating on the page rather than a bar wedged against the edge. */
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--scrollbar-thumb-hover);
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
 }
 
 /* Static background with pre-baked gradient blobs and noise
