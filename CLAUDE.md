@@ -2,9 +2,13 @@
 
 Read this before any deploy, branch, or file-removal work in this repo.
 
-## !! NEVER DEPLOY OR PROMOTE `master` !!
+## !! NEVER DEPLOY OR PROMOTE `archive/pre-saas` !!
 
-`master` contains **only** `src/pages/guide.astro` and `src/pages/index.astro`.
+Renamed from `master` on 2026-08-29, precisely so nobody reaches for it by
+reflex. GitHub keeps a redirect from the old name, so `master` still
+resolves -- the hazard did not go away, it just got a name that says so.
+
+It contains **only** `src/pages/guide.astro` and `src/pages/index.astro`.
 It has **no API routes at all**. Deploying it to production would delete the
 Google OAuth broker (below) and break Google Takeout imports for every user.
 
@@ -14,8 +18,11 @@ deploy becomes *production* depends on which branch the Cloudflare Pages
 project calls production, which is a dashboard setting not visible in this
 repo.
 
-`master` is roughly 20 commits behind and predates the SaaS pivot. Treat it
-as abandoned. If you are wondering whether to merge or promote it: no.
+It is roughly 20 commits behind and predates the SaaS pivot. Treat it as
+abandoned. If you are wondering whether to merge or promote it: no.
+
+Note the rename does NOT disarm the CI: a push to `archive/pre-saas` still
+builds and deploys it. The name is a guardrail, not a lock.
 
 ## THE ONE THING THIS SITE MUST KEEP SERVING
 
@@ -47,8 +54,9 @@ then, this repo is a hard dependency of the backend's import path.
 
 * `preview` -- the full working site. Active development happens here.
 * `holding` -- the production holding page. Deliberately minimal: one page
-  plus the API routes. Promote THIS to production, not `master`.
-* `master` -- abandoned, dangerous. See above.
+  plus the API routes. Promote THIS to production.
+* `archive/pre-saas` -- abandoned, dangerous. See above. Was `master` until
+  2026-08-29; the repo default is now `preview`.
 
 ## Other endpoints, less critical but check before removing
 
