@@ -93,11 +93,11 @@ const CONSOLE_URL = "https://my.twineline.ai";
       <!-- The reason this page is not merely decorative: existing beta
            users need a way back to their account. Before the sign-in link
            landed, nothing anywhere pointed at the console. -->
-      <div class="mt-10 flex flex-col items-center gap-3">
-        <a href={CONSOLE_URL} class="btn-accent"> Sign in </a>
+      <div class="mt-10 flex flex-wrap items-center justify-center gap-3">
         <span class="text-sm" style="color: var(--text-muted);">
-          Already have an account?
+          If you have a beta account:
         </span>
+        <a href={CONSOLE_URL} class="btn-accent"> Sign in </a>
       </div>
     </main>
 
