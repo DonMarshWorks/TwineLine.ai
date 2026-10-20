@@ -37,9 +37,11 @@ Do not bring them back.
 
 **Check after every production deploy:**
 
-    curl -s -o /dev/null -w "%{http_code}\n" https://twineline.ai/api/auth/google/start
+    curl -s https://twineline.ai/api/auth/google/start | head -c 60
 
-**404 is correct now.**
+**The holding page's HTML (`<!DOCTYPE html>`, status 200) is correct now**:
+the site answers every unknown path with the page, so a retired route looks
+like any other. A 400 or JSON there would mean the relay came back.
 
 ## Branches
 
