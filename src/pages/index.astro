@@ -18,7 +18,8 @@
 // (`src/pages/api/auth/google/**`) is RETIRED (2026-10-20): the backend's
 // server-side Google Takeout import is gone (TwineLineFire
 // docs/plans/retire-server-imports.md), so nothing calls it.
-// /api/auth/google/start answers 404 now, and that is correct.
+// /api/auth/google/start answers with this page now (status 200, like any
+// unknown path), and that is correct; a 400 would mean the relay is back.
 import "../styles/global.css";
 
 const CONSOLE_URL = "https://my.twineline.ai";
