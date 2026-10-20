@@ -9,8 +9,9 @@ reflex. GitHub keeps a redirect from the old name, so `master` still
 resolves -- the hazard did not go away, it just got a name that says so.
 
 It contains **only** `src/pages/guide.astro` and `src/pages/index.astro`.
-It has **no API routes at all**. Deploying it to production would delete the
-Google OAuth broker (below) and break Google Takeout imports for every user.
+It has **no API routes at all** and predates everything since. (It used to
+matter most because deploying it removed the Google OAuth relay; that relay
+is retired, but the branch is still stale and must not be promoted.)
 
 This is a live footgun because `.github/workflows/deploy.yml` triggers on
 `branches: ['**']` -- every branch that is pushed gets deployed. Whether a
@@ -24,31 +25,21 @@ abandoned. If you are wondering whether to merge or promote it: no.
 Note the rename does NOT disarm the CI: a push to `archive/pre-saas` still
 builds and deploys it. The name is a guardrail, not a lock.
 
-## THE ONE THING THIS SITE MUST KEEP SERVING
+## The Google OAuth relay is RETIRED (2026-10-20)
 
-    src/pages/api/auth/google/{start,callback,poll,refresh}.ts
-
-This is **live production infrastructure**, not marketing. The backend in the
-sibling repo hardcodes it:
-
-* `TwineLineFire/app/google_oauth.py` -> `https://twineline.ai/api/auth/google/refresh`
-* `TwineLineFire/app/api/importers.py` -> `{RELAY_BASE}/api/auth/google/start`
-  and `/poll`, where `RELAY_BASE = "https://twineline.ai"`
-
-That broker carries every Google Takeout import. If a deploy removes it, the
-failure is **silent and delayed**: nothing breaks at deploy time, and then
-users' imports stop when a token next needs refreshing.
+`src/pages/api/auth/google/{start,callback,poll,refresh}.ts` used to be
+live infrastructure: the backend's server-side Google Takeout import
+signed in through it. That import was retired (TwineLineFire
+`docs/plans/retire-server-imports.md`; the browser extension is the only
+Google path), the backend no longer calls it, and the routes, the
+`GOOGLE_AUTH_KV` binding and the `GOOGLE_CLIENT_*` secrets were removed.
+Do not bring them back.
 
 **Check after every production deploy:**
 
     curl -s -o /dev/null -w "%{http_code}\n" https://twineline.ai/api/auth/google/start
 
-**400 is correct** (it is rejecting a request with no session parameter).
-**404 means you have broken imports for every user.**
-
-The long-term fix is to move this broker into FastAPI -- it is fold F2 of
-`TwineLineFire/docs/plans/app-website-surface-split.md`, not yet done. Until
-then, this repo is a hard dependency of the backend's import path.
+**404 is correct now.**
 
 ## Branches
 
