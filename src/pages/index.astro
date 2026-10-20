@@ -14,16 +14,11 @@
 // links to /how-it-works and /guide, which this branch deletes. A holding
 // page whose own header 404s is worse than no header.
 //
-// WHAT MUST SURVIVE ON THIS BRANCH: `src/pages/api/auth/google/**`. The
-// backend hardcodes `https://twineline.ai/api/auth/google/refresh`
-// (TwineLineFire app/google_oauth.py) and calls `/start` and `/poll`
-// (app/api/importers.py) -- that broker carries every Google Takeout
-// import. It is live right now: /api/auth/google/start answers 400, not
-// 404. If a deploy of this branch ever turns that into a 404, Google
-// imports break for every user, and NOT at deploy time -- later, quietly,
-// when a token needs refreshing.
-//
-// After promoting this to production, check that first.
+// The Google OAuth relay that used to live beside this page
+// (`src/pages/api/auth/google/**`) is RETIRED (2026-10-20): the backend's
+// server-side Google Takeout import is gone (TwineLineFire
+// docs/plans/retire-server-imports.md), so nothing calls it.
+// /api/auth/google/start answers 404 now, and that is correct.
 import "../styles/global.css";
 
 const CONSOLE_URL = "https://my.twineline.ai";
