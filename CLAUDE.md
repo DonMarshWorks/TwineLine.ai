@@ -51,14 +51,16 @@ like any other. A 400 or JSON there would mean the relay came back.
 * `archive/pre-saas` -- abandoned, dangerous. See above. Was `master` until
   2026-08-29; the repo default is now `preview`.
 
-## Other endpoints, less critical but check before removing
+## Self-hosted-era endpoints (still on this branch)
 
 `src/pages/api/register.ts`, `api/check/[username].ts`,
-`api/connect/[username].ts`, `releases/[...path].ts`. Measured 2026-08-29:
-all four return 404 on live production, so nothing currently depends on them
-being served from here -- but `TwineLineFire/scripts/deploy_apex_worker.py`
-reasons about an apex Worker's `/api/register` shadowing this site's, so
-confirm before assuming they are dead.
+`api/connect/[username].ts`, `releases/[...path].ts`: the self-hosted era's
+phonebook and desktop downloads. Removed from `holding` (production) on
+2026-10-20; kept here only because this branch's old self-hosted pages
+(setup, choose-your-server, connect, download) use them. Their secrets
+(`PHONEBOOK_API_KEY`, and the `CLOUDFLARE_*` ones) were deleted from the
+Pages project, so they refuse every request. `/api/register` could create
+DNS records for any `*.twineline.ai` name: never give it a key again.
 
 ## Working in this repo
 
