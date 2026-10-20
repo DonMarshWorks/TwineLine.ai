@@ -51,21 +51,24 @@ like any other. A 400 or JSON there would mean the relay came back.
 * `archive/pre-saas` -- abandoned, dangerous. See above. Was `master` until
   2026-08-29; the repo default is now `preview`.
 
-## Other endpoints, less critical but check before removing
+## Retired endpoints (2026-10-20)
 
-`src/pages/api/register.ts`, `api/check/[username].ts`,
-`api/connect/[username].ts`, `releases/[...path].ts`. Measured 2026-08-29:
-all four return 404 on live production, so nothing currently depends on them
-being served from here -- but `TwineLineFire/scripts/deploy_apex_worker.py`
-reasons about an apex Worker's `/api/register` shadowing this site's, so
-confirm before assuming they are dead.
+The self-hosted era's phonebook (`/api/register`, `/api/check/[username]`,
+`/api/connect/[username]`: DNS records for each customer's own server) and
+the desktop-app downloads (`/releases/...`, `public/install.{ps1,sh}`) were
+removed from this branch with their helpers, the `RELEASES` R2 binding and
+the `CLOUDFLARE_*` / `PHONEBOOK_API_KEY` types. Nothing in TwineLine calls
+them (TwineLineFire's `web_access` / `cloud_dns` / `tunnel_manager` are gone).
+`/api/register` could create DNS records for any `*.twineline.ai` name, so do
+not bring it back. `preview` still carries them (its old self-hosted pages
+use them); without the secrets they refuse every request.
 
 ## Working in this repo
 
-* `npm run lint` is `prettier --check` + `astro check`. There is one
-  PRE-EXISTING `astro check` error in `src/pages/releases/[...path].ts` (a
-  Cloudflare workers-types vs DOM `ReadableStream` mismatch). Do not claim
-  you introduced it, and do not claim lint is clean without saying so.
+* `npm run lint` is `prettier --check` + `astro check`. On this branch
+  `astro check` is clean (its one old error went with
+  `src/pages/releases/[...path].ts`). `prettier --check` still flags files
+  that predate it, CLAUDE.md and wrangler.jsonc among them.
 * `npm test` -- 124 vitest tests.
 * `astro preview` does NOT work: the Cloudflare adapter refuses it. To run a
   build the way production runs it, use

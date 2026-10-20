@@ -1,17 +1,10 @@
 /// <reference types="astro/client" />
 
-import type {
-  CacheStorage as CloudflareCacheStorage,
-  R2Bucket,
-} from "@cloudflare/workers-types";
+import type { CacheStorage as CloudflareCacheStorage } from "@cloudflare/workers-types";
 
-type CloudflareEnv = {
-  CLOUDFLARE_API_TOKEN: string;
-  CLOUDFLARE_ZONE_ID: string;
-  CLOUDFLARE_ACCOUNT_ID: string;
-  PHONEBOOK_API_KEY: string;
-  RELEASES: R2Bucket;
-};
+// No bindings or secrets since the Google relay and the self-hosted-era
+// endpoints were retired (2026-10-20); the page is static.
+type CloudflareEnv = Record<string, never>;
 
 declare global {
   namespace App {

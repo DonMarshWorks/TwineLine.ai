@@ -10,12 +10,6 @@
 		"binding": "ASSETS",
 		"directory": "./dist"
 	},
-	"r2_buckets": [
-		{
-			"binding": "RELEASES",
-			"bucket_name": "twineline-releases"
-		}
-	],
 	"observability": {
     "enabled": true
   }

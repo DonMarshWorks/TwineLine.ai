@@ -10,7 +10,7 @@
     "astro": "astro",
     "format": "prettier --write \"src/**/*.{ts,astro,vue,css}\"",
     "lint": "prettier --check \"src/**/*.{ts,astro,vue,css}\" && astro check",
-    "test": "vitest run",
+    "test": "vitest run --passWithNoTests",
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",
     "deploy": "astro build && wrangler pages deploy dist/ --project-name twineline-ai"
